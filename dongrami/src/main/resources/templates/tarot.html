@@ -5,7 +5,7 @@
         <title>Dongrami Tarot</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
 		<!-- CSS here -->
             <link rel="stylesheet" href="/css/bootstrap.min2.css">
@@ -49,7 +49,7 @@
 	                                       <li class="active"><a th:href="@{/index}"> Home</a></li>
 	                                       <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
 	                                       <li><a th:href="@{/vote}">논쟁 투표</a></li>
-	                                       <li><a th:href="@{/review}">리뷰</a></li>
+	                                       <li><a th:href="@{/review}">후기</a></li>
 										<li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
 										     <a th:href="@{/login}">로그인 / 회원가입</a>
 										</li>
@@ -85,7 +85,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-4 col-lg-4 col-md-6">
-                        <span><p id="subcategory_name" th:text="${subcategoryName}">짝사랑</p></span>
+                        <span><p id="subcategory_name" th:text="${subcategoryBubble}">짝사랑</p></span>
                         <div class="speech-bubble">
                             <span><p id="tarot_info">신중하게 카드 1장을 선택해 봐!</p></span>
                         </div>
@@ -109,6 +109,7 @@
                     <div class="card-select">
                         <div id="card1"></div>
                     </div>
+					<input type="hidden" id="subcategoryId" name="subcategoryId" th:value="${sub_id}">
                     <div class="showResult" id="showResultButton">
 						<a th:href="@{/result}">결과 보기</a>	
                    </div>
@@ -193,5 +194,6 @@
 
     <!-- Tarot js-->
     <script th:src="@{/js/tarot_oneSelect.js}"></script>
+	<script th:src="@{/js/tarot_sub.js}"></script>
     </body>
 </html>

@@ -90,6 +90,7 @@
         <div class="container1">
             <div class="login-box1">
                 <h2>비밀번호 찾기</h2>
+				<p>※ 입력하신 이메일로 임시 비밀번호가 전송됩니다.</p>
                 <form id="findForm" th:action="@{/member/findPwdCheck}" method="post">
                     <div class="form-group">
                         <input type="email" name="email" id="email" placeholder="이메일">
@@ -100,8 +101,8 @@
                         <input type="submit" value="회원가입" th:onclick="'window.location.href=\'' + @{/join} + '\'; return false;'">
                         <span class="separator">|</span>
                         <input type="submit" value="로그인하기" th:onclick="'window.location.href=\'' + @{/login} + '\'; return false;'">
-						<span class="separator">|</span>
-                        <input type="submit" value="아이디 찾기" th:onclick="'window.location.href = \'' + @{/find_Id} + '\'; return false;'">	                        
+						<!--<span class="separator">|</span>
+                        <input type="submit" value="아이디 찾기" th:onclick="'window.location.href = \'' + @{/find_Id} + '\'; return false;'">	-->                     
 					</div>
                 </form>
             </div>

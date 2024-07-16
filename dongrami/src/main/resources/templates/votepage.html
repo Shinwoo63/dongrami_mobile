@@ -33,57 +33,57 @@
 <body>
 
 	<header>
-	        <!-- Header Start -->
-	       <div class="header-area header-transparrent ">
-	            <div class="main-header header-sticky">
-	                <div class="container">
-	                    <div class="row align-items-center">
-	                        <!-- Logo -->
-	                        <div class="col-xl-2 col-lg-2 col-md-2">
-	                            <div class="logo">
-	                                <a href="#" class="logo-text">CIRCLE TAROT</a>
-	                                <div class="hover-content">
-	                                    <span class="hover-text left-text">동그</span>
-	                                    <div class="logo-image"></div>
-	                                    <span class="hover-text right-text">라미</span>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="col-xl-10 col-lg-10 col-md-10">
-	                            <!-- Main-menu -->
-	                            <div class="main-menu f-right d-none d-lg-block">
-	                                <nav>
-	                                    <ul id="navigation">    
-	                                        <li class="active"><a th:href="@{/index}"> Home</a></li>
-	                                        <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
-	                                        <li><a th:href="@{/vote}">논쟁 투표</a></li>
-	                                        <li><a th:href="@{/review}">리뷰</a></li>
-											<li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
-											     <a th:href="@{/login}">로그인 / 회원가입</a>
-											</li>
-											<li class="dropdown" style="margin-right: -100px;" th:if="${session.loggedInUser != null}">
-											     <a href="#" class="dropdown-toggle">
-											          <img src="/images/mainlogo.png" alt="프로필 이미지" class="profile-img">
-											          <span th:text="${session.loggedInUser.nickname}">사용자 이름</span>
-											     </a>
-											     <ul class="dropdown-menu">
-											     	<li><a th:href="@{/mypage}">마이페이지</a></li>
-											     	<li><a th:href="@{/logout}">로그아웃</a></li>
-											   </ul>
-										  </li>
-	                                </nav>
-	                            </div>
-	                        </div>
-	                        <!-- Mobile Menu -->
-	                        <div class="col-12">
-	                            <div class="mobile_menu d-block d-lg-none"></div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	       </div>
-	        <!-- Header End -->
-	    </header>
+	       <!-- Header Start -->
+	      <div class="header-area header-transparrent ">
+	           <div class="main-header header-sticky">
+	               <div class="container">
+	                   <div class="row align-items-center">
+	                       <!-- Logo -->
+	                       <div class="col-xl-2 col-lg-2 col-md-2">
+	                           <div class="logo">
+	                               <a th:href="@{/}" class="logo-text">CIRCLE TAROT</a>
+	                               <div class="hover-content">
+	                                   <span class="hover-text left-text">동그</span>
+	                                   <div class="logo-image"></div>
+	                                   <span class="hover-text right-text">라미</span>
+	                               </div>
+	                           </div>
+	                       </div>
+	                       <div class="col-xl-10 col-lg-10 col-md-10">
+	                           <!-- Main-menu -->
+	                           <div class="main-menu f-right d-none d-lg-block">
+	                               <nav>
+	                                   <ul id="navigation">    
+	                                       <li class="active"><a th:href="@{/}"> Home</a></li>
+	                                       <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+	                                       <li><a th:href="@{/vote}">논쟁 투표</a></li>
+	                                       <li><a th:href="@{/review}">후기</a></li>
+										<li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
+										     <a th:href="@{/login}">로그인 / 회원가입</a>
+										</li>
+										<li class="dropdown" style="margin-right: -100px;" th:if="${session.loggedInUser != null}">
+										     <a href="#" class="dropdown-toggle">
+										          <img src="/images/mainlogo.png" alt="프로필 이미지" class="profile-img">
+										          <span th:text="${session.loggedInUser.nickname}">사용자 이름</span>
+										     </a>
+										     <ul class="dropdown-menu">
+										     	<li><a th:href="@{/mypage}">마이페이지</a></li>
+										     	<li><a th:href="@{/logout}">로그아웃</a></li>
+										   </ul>
+									  </li>                  
+	                               </nav>
+	                           </div>
+	                       </div>
+	                       <!-- Mobile Menu -->
+	                       <div class="col-12">
+	                           <div class="mobile_menu d-block d-lg-none"></div>
+	                       </div>
+	                   </div>
+	               </div>
+	           </div>
+	      </div>
+	       <!-- Header End -->
+	   </header>
 
     <!-- Slider Area Start-->
     <div class="services-area">

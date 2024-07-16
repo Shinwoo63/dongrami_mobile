@@ -152,19 +152,19 @@
 		                                <p th:text="${passwordError}"></p>
 		                            </div>
 
-		                            <div class="changebutton mt-4">
-		                                <input type="submit" value="회원 정보 저장" class="btn btn-lg save-button"
-		                                       style="background-color: #7150BD;">
-		                            </div>
+									<div class="changebutton mt-4">
+									    <input type="submit" value="회원 정보 저장" class="btn btn-lg save-button"
+									           style="background-color: #7150BD;" onclick="showUpdateModal()">
+									</div>
 		                        </div>
 		                    </form>
 		                    <!-- Form 끝 -->
 
 		                    <!-- 회원 탈퇴 form 시작 -->
-		                    <form th:action="@{/editprofile/delete}" method="post">
-		                        <div class="changebutton mt-4">
-		                            <input type="submit" value="회원 탈퇴" class="btn btn-lg withdraw-button"
-		                                   style="background-color: #7150BD;">
+							<form th:action="@{/editprofile/delete}" method="post" id="deleteForm">
+							    <div class="changebutton mt-4">
+							        <input type="button" value="회원 탈퇴" class="btn btn-lg withdraw-button"
+							               style="background-color: #7150BD;" onclick="showDeleteModal()">
 		                        </div>
 		                    </form>
 		                    <!-- 회원 탈퇴 form 끝 -->
@@ -174,6 +174,43 @@
 		        </div>
 		    </section>
 		</section>
+		
+		<!-- 회원 정보 수정 완료 모달 -->
+		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel"
+		     aria-hidden="true">
+		    <div class="modal-dialog modal-dialog-centered" role="document">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <h5 class="modal-title" id="updateModalLabel">회원 정보 수정</h5>
+		            </div>
+		            <div class="modal-body">
+		                회원 정보 수정이 완료되었습니다!
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+		<!-- 회원 탈퇴 확인 모달 -->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+		     aria-hidden="true">
+		    <div class="modal-dialog modal-dialog-centered" role="document">
+		        <div class="modal-content-out">
+		            <div class="modal-header-out">
+		                <h5 class="modal-title-out" id="deleteModalLabel">회원 탈퇴</h5>
+		            </div>
+		            <div class="modal-body-out">
+		                정말 탈퇴하시겠습니까?
+		            </div>
+		            <div class="modal-footer-out">
+						<button type="button" class="btn btn-first-out" onclick="confirmDelete()">네</button>
+		                <button type="button" class="btn btn-secondary-out" data-dismiss="modal">아니오</button>
+		            </div>
+		        </div>
+		    </div>
+		</div>
 	    
 	<footer>
 	    <!-- Footer Start-->
@@ -247,8 +284,23 @@
         
 		<!-- Jquery Plugins, main Jquery -->	
         <script th:src="@{/js/plugins.js}"></script>
-        <script th:src="@{/js/main.js}"></script>
+        <script th:src="@{/js/maineditprofile.js}"></script>
+		
+		<script th:src="@{/js/editprofile.js}"></script>
         
+		<script>
+			function showUpdateModal() {
+			    $('#updateModal').modal('show');
+			}
+
+			function showDeleteModal() {
+			    $('#deleteModal').modal('show');
+			}
+
+			function confirmDelete() {
+			    document.getElementById('deleteForm').submit();
+			}
+		</script>
     </body>
     
     </html>

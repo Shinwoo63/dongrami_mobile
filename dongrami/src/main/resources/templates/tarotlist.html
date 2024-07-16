@@ -9,7 +9,7 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" th:href="@{/css/custom.css}">
-	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
     <link rel="stylesheet" th:href="@{/css/slicknav.css}">
     <link rel="stylesheet" th:href="@{/css/animate.min.css}">
@@ -21,68 +21,68 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/responsive.css}">
     <link rel="stylesheet" th:href="@{/css/nav.css}">
-	<link rel="stylesheet" th:href="@{/css/tarotlist.css}">
-	
-	
-	
-	
+   <link rel="stylesheet" th:href="@{/css/tarotlist.css}">
+   
+   
+   
+   
 </head>
 <body>
-	<header>
-	        <!-- Header Start -->
-	       <div class="header-area header-transparrent ">
-	            <div class="main-header header-sticky">
-	                <div class="container">
-	                    <div class="row align-items-center">
-	                        <!-- Logo -->
-	                        <div class="col-xl-2 col-lg-2 col-md-2">
-	                            <div class="logo">
-	                                <a href="#" class="logo-text">CIRCLE TAROT</a>
-	                                <div class="hover-content">
-	                                    <span class="hover-text left-text">동그</span>
-	                                    <div class="logo-image"></div>
-	                                    <span class="hover-text right-text">라미</span>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="col-xl-10 col-lg-10 col-md-10">
-	                            <!-- Main-menu -->
-	                            <div class="main-menu f-right d-none d-lg-block">
-	                                <nav>
-	                                    <ul id="navigation">    
-	                                        <li class="active"><a th:href="@{/index}"> Home</a></li>
-	                                        <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
-	                                        <li><a th:href="@{/vote}">논쟁 투표</a></li>
-	                                        <li><a th:href="@{/review}">리뷰</a></li>
-											<li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
-											     <a th:href="@{/login}">로그인 / 회원가입</a>
-											</li>
-											<li class="dropdown" style="margin-right: -100px;" th:if="${session.loggedInUser != null}">
-											     <a href="#" class="dropdown-toggle">
-											          <img src="/images/mainlogo.png" alt="프로필 이미지" class="profile-img">
-											          <span th:text="${session.loggedInUser.nickname}">사용자 이름</span>
-											     </a>
-											     <ul class="dropdown-menu">
-											     	<li><a th:href="@{/mypage}">마이페이지</a></li>
-											     	<li><a th:href="@{/logout}">로그아웃</a></li>
-											   </ul>
-										  </li>
-	                                </nav>
-	                            </div>
-	                        </div>
-	                        <!-- Mobile Menu -->
-	                        <div class="col-12">
-	                            <div class="mobile_menu d-block d-lg-none"></div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	       </div>
-	        <!-- Header End -->
-	    </header>
-	
-	
-	
+   <header>
+           <!-- Header Start -->
+          <div class="header-area header-transparrent ">
+               <div class="main-header header-sticky">
+                   <div class="container">
+                       <div class="row align-items-center">
+                           <!-- Logo -->
+                           <div class="col-xl-2 col-lg-2 col-md-2">
+                               <div class="logo">
+                                   <a href="#" class="logo-text">CIRCLE TAROT</a>
+                                   <div class="hover-content">
+                                       <span class="hover-text left-text">동그</span>
+                                       <div class="logo-image"></div>
+                                       <span class="hover-text right-text">라미</span>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="col-xl-10 col-lg-10 col-md-10">
+                               <!-- Main-menu -->
+                               <div class="main-menu f-right d-none d-lg-block">
+                                   <nav>
+                                       <ul id="navigation">    
+                                           <li class="active"><a th:href="@{/index}"> Home</a></li>
+                                           <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+                                           <li><a th:href="@{/vote}">논쟁 투표</a></li>
+                                           <li><a th:href="@{/review}">리뷰</a></li>
+                                 <li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
+                                      <a th:href="@{/login}">로그인 / 회원가입</a>
+                                 </li>
+                                 <li class="dropdown" style="margin-right: -100px;" th:if="${session.loggedInUser != null}">
+                                      <a href="#" class="dropdown-toggle">
+                                           <img src="/images/mainlogo.png" alt="프로필 이미지" class="profile-img">
+                                           <span th:text="${session.loggedInUser.nickname}">사용자 이름</span>
+                                      </a>
+                                      <ul class="dropdown-menu">
+                                         <li><a th:href="@{/mypage}">마이페이지</a></li>
+                                         <li><a th:href="@{/logout}">로그아웃</a></li>
+                                    </ul>
+                                </li>
+                                   </nav>
+                               </div>
+                           </div>
+                           <!-- Mobile Menu -->
+                           <div class="col-12">
+                               <div class="mobile_menu d-block d-lg-none"></div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+          </div>
+           <!-- Header End -->
+       </header>
+   
+   
+   
 <main>
 
 <section class="portfolio-boxed">
@@ -102,11 +102,11 @@
                         <h4>Love</h4>
                         <p>연애운</p>
                         <ul class="custom-hover-list">
-							<li><a th:href="@{/tarot}">짝사랑의 행운은?</a></li>
-							<li><a th:href="@{/tarot}">다음 연인 예측하기!</a></li>
-							<li><a th:href="@{/tarot}">결혼, 괜찮을까?</a></li>
-							<li><a th:href="@{/tarot}">결재회, 가능할까?</a></li>
-							<li><a th:href="@{/tarot}">연애 운세 체크!</a></li>
+                     <li><a th:href="@{/tarot}" th:data-category-id="1">짝사랑의 행운은?</a></li>
+                     <li><a th:href="@{/tarot}" th:data-category-id="4">다음 연인 예측하기!</a></li>
+                     <li><a th:href="@{/tarot}" th:data-category-id="5">결혼, 괜찮을까?</a></li>
+                     <li><a th:href="@{/tarot}" th:data-category-id="2">재회, 가능할까?</a></li>
+                     <li><a th:href="@{/tarot}" th:data-category-id="3">연애 운세 체크!</a></li>
                         </ul>
                     </div>
                 </div>
@@ -118,9 +118,9 @@
                         <h4>Money</h4>
                         <p>금전운</p>
                         <ul class="custom-hover-list">
-                            <li><a th:href="@{/link4.html}">재물 운 상승!</a></li>
-                            <li><a th:href="@{/link5.html}">급여, 오를까?</a></li>
-                            <li><a th:href="@{/link6.html}">투자, 성공할까?</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="9">재물 운 상승!</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="8">급여, 오를까?</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="7">투자, 성공할까?</a></li>
                         </ul>
                     </div>
                 </div>
@@ -132,9 +132,9 @@
                         <h4>Jigeob</h4>
                         <p>직업운</p>
                         <ul class="custom-hover-list">
-                            <li><a th:href="@{/link7.html}">일, 잘 풀릴까?</a></li>
-                            <li><a th:href="@{/link8.html}">나에게 맞는 직업은?</a></li>
-                            <li><a th:href="@{/link9.html}">취업, 성공할까?</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="10">일, 잘 풀릴까?</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="11">나에게 맞는 직업은?</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="12">취업, 성공할까?</a></li>
                         </ul>
                     </div>
                 </div>
@@ -146,9 +146,9 @@
                         <h4>Study</h4>
                         <p>학업운</p>
                         <ul class="custom-hover-list">
-                            <li><a th:href="@{/link10.html}">시험, 합격할까?</a></li>
-                            <li><a th:href="@{/link11.html}">학업 스트레스 타파!</a></li>
-                            <li><a th:href="@{/link12.html}">유학, 떠날까 말까?</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="13">시험, 합격할까?</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="14">학업 스트레스 타파!</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="15">유학, 떠날까 말까?</a></li>
                         </ul>
                     </div>
                 </div>
@@ -160,9 +160,9 @@
                         <h4>Basic</h4>
                         <p>대인관계</p>
                         <ul class="custom-hover-list">
-                            <li><a th:href="@{/link13.html}">내 이미지 탐구!</a></li>
-                            <li><a th:href="@{/link14.html}">나를 싫어하는 이유?</a></li>
-                            <li><a th:href="@{/link15.html}">소통, 이렇게 하면 좋아!</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="16">내 이미지 탐구!</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="17">나를 싫어하는 이유?</a></li>
+                            <li><a th:href="@{/tarot}" th:data-category-id="18">소통, 이렇게 하면 좋아!</a></li>
                         </ul>
                     </div>
                 </div>
@@ -236,5 +236,6 @@
     <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
     <script th:src="@{/js/plugins.js}"></script>
     <script th:src="@{/js/main.js}"></script>
+   <script th:src="@{/js/sub.js}"></script>
 </body>
 </html>

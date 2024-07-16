@@ -106,6 +106,12 @@
     margin-bottom: 15px;
 }
 
+@media (max-width : 900px) {
+	.menu > div {
+		margin-top: 30px;
+	}
+}
+
 .menu input, .menu select {
     width: 100%; /* 입력 필드 및 셀렉트 박스의 너비를 100%로 설정 */
     padding: 10px;
@@ -274,4 +280,185 @@
     margin: 0 5px; /* Optional additional margin */
 }
 
+.modal-content {
+	border-radius: 20px;
+	
+}
 
+.modal-body, .modal-header, .modal-footer {
+	border: none;
+}
+
+.modal-title {
+	font-weight: bold;
+	font-size: 30px;
+	margin-left: 140px;
+}
+
+.modal-body {
+	margin-left: 115px;
+}
+
+.btn.btn-primary {
+	margin-right: 180px;
+	padding: 20px;
+	width: 100px;
+	height: 50px;
+	background-color: #7150BD;
+	border-radius: 15px;
+}
+
+.btn.btn-first-out {
+	padding: 20px;
+	width: 100px;
+	height: 50px;
+	background-color: #7150BD;
+	border-radius: 15px;
+	margin-left: 110px;
+}
+
+@media (max-width : 900px) {
+	
+	.row {
+		margin-left : 0px;
+		margin-right : 0px;
+	}
+	
+	.modal-content {
+		width: 90%;
+		margin-left: 18px;
+	}
+	
+	.modal-title {
+		margin-left : 75px;
+		font-weight: bold;
+		font-size: 25px;
+	}
+	
+	.modal-body {
+		margin-left: 35px;
+	}
+	
+	.btn.btn-primary {
+		margin-right: 97px;
+		height: 50px;
+		width: 100px;
+		background-color: #7150BD;
+		border-radius: 15px;
+		padding: 0px;
+	}
+	
+	.modal-heaer-out {
+		padding: 1rem;
+	}
+	
+}
+
+.modal-content-out {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+	border-radius: 20px;
+    outline: 0
+}
+
+.modal-header-out {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem
+}
+
+.modal-title-out {
+    margin-bottom: 0;
+    line-height: 1.5;
+	font-weight: bold;
+	font-size: 30px;
+	margin-left: 170px;
+}
+
+.modal-body-out {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+    margin-left: 150px;
+}
+
+.modal-footer-out {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    padding: 1rem;
+    
+}
+
+	.btn.btn-secondary-out {
+        right: -20px;
+        margin-left: 30px;
+        height: 50px;
+        width: 100px;
+        background-color: #7150BD;
+        border-radius: 15px;
+        padding: 0px;
+	}
+
+@media (max-width : 900px) {
+	
+	.modal-content-out {
+		width: 90%;
+		margin-left: 18px;
+	}
+	
+	.modal-title-out {
+		margin-left: 100px;
+		font-weight: bold;
+		font-size: 25px;
+	}
+	
+	.modal-body-out {
+		margin-left : 70px;
+	}
+	
+	.btn.btn-secondary-out {
+        right: -20px;
+        margin-left: 30px;
+        height: 50px;
+        width: 100px;
+        background-color: #7150BD;
+        border-radius: 15px;
+        padding: 0px;
+	}
+	
+	.btn.btn-first-out {
+		margin-left: 30px;
+		padding: 20px;
+	   	width: 100px;
+	    height: 50px;
+	    background-color: #7150BD;
+	    border-radius: 15px;
+	}
+	
+	.logo-text {
+		margin-left : -35px;
+	}
+	
+	.header-area .slicknav_btn {
+		margin-right: -10px;
+	}
+	
+}

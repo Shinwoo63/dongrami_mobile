@@ -1,23 +1,54 @@
 /* styles.css */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    background: #F4FEFF;
 }
-.comment-container{
-	position:relative;
-	top:-1400px;
-	left: -337px;
+
+form#replyForm {
+    border-bottom: 1px solid #ccc;
 }
+
+button.post-reply-button {
+    left: -22px;
+    position: relative;
+    display: inline-block;
+    padding: 5px 5px;
+    background-color: #EAEAEA;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    top: 37px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    z-index: 10;
+}
+
+.single-post {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    width: 1200px;
+    left: -21px;
+    border: 1px solid #ddd;
+}
+
+.comment-container {
+    position: relative;
+    top: -1427px;
+    left: -337px;
+    border-bottom: 1px solid #CCC;
+}
+
 .vote-item {
     width: 1200px;
     height: 600px;
     padding: 10px;
     margin-bottom: 20px;
-    margin-top:29px;
-	border:none;
-    background-color:white;
-    
+    margin-top: 29px;
+    border: none;
+    background-color: white;
 }
 
 .vote-item h2 {
@@ -42,13 +73,13 @@ body {
     margin-bottom: 100px;
 }
 
- .button-container {
+.button-container {
     flex-direction: column;
     gap: 90px;
     position: relative;
     top: -548px;
-        
-    }
+}
+
 .button-container button {
     margin-top: 10px;
     width: 80px;
@@ -60,21 +91,24 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    }
-  .button-container #button1 {
+}
+
+.button-container #button1 {
     top: -2px;
     position: relative;
     left: 982px;
     font-size: 13px;
     width: 70px;
-	}
-	.button-container #button2 {
-    top: 118px;
+}
+
+.button-container #button2 {
+    top: 126px;
     position: relative;
     left: 913px;
     font-size: 13px;
     width: 70px;
-	}
+}
+
 .bar-container1 {
     display: flex;
     width: 400px;
@@ -88,14 +122,15 @@ body {
     margin-top: -240px;
     margin-left: -150px;
 }
-.bar-container2{
+
+.bar-container2 {
     display: flex;
     width: 400px;
     height: 30px;
     cursor: pointer;
     position: relative;
     border-radius: 5px;
-    top: -350px;
+    top: -340px;
     background-color: skyblue;
     margin-top: 100px;
     left: 554px;
@@ -105,14 +140,16 @@ body {
     position: relative;
     height: 100%;
     border-radius: 5px;
-     background: rgb(251, 33, 117);
+    background: rgb(251, 33, 117);
     background: linear-gradient(0deg, rgba(251, 33, 117, 1) 0%, rgba(234, 76, 137, 1) 100%);
 }
+
 button#button1.selected {
     background: rgb(251, 33, 117);
     background: linear-gradient(0deg, rgba(251, 33, 117, 1) 0%, rgba(234, 76, 137, 1) 100%);
     color: #fff;
 }
+
 .bar2 {
     position: relative;
     height: 100%;
@@ -120,75 +157,88 @@ button#button1.selected {
     background: rgb(0, 172, 238);
     background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
 }
+
 button#button2.selected {
     background: rgb(0, 172, 238);
     background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
     color: #fff;
 }
 
-
-.text-left{
-    position:absolute;
+.text-left {
+    position: absolute;
 }
 
 #text1 {
-    color:white;
-    position:absolute;
-    top:10%;
-    left:5%;
+    color: white;
+    position: absolute;
+    top: 10%;
+    left: 5%;
 }
-#text2{
-    position:absolute;
-    color:white;
-    top:10%;
-    left:5%;
+
+#text2 {
+    position: absolute;
+    color: white;
+    top: 10%;
+    left: 5%;
 }
-.percentage{
+
+.percentage {
     position: absolute;
     color: white;
     left: 360px;
     top: 3px;
 }
+
 #pagination {
-	padding: 10px;
+    padding: 10px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:white;
-    left: 458px;
-    top: 1000px;
     color: black;
+    top: 70px;
+    z-index:20;
 }
-#pageButton{
-	position: relative;
-	background-color:white;
-	border: none;
-	margin:10px;
-	color:black;
-	width:30px;
-	height:30px;
-	left: -223px;
+
+#pageButton {
+    position: relative;
+    background: none;
+    border: none;
+    margin: 10px;
+    color: black;
+    width: 30px;
+    height: 30px;
+    left: 0px;
+    z-index: 100;
 }
-#pageButton :hover{
-		box-shadow: 0 0 0 1px gray; /* 회색 테두리 효과 */
-		color: blue;
+
+#pageButton :hover {
+    box-shadow: 0 0 0 1px gray;
+    color: blue;
 }
+
 #prevButton {
     position: absolute;
     width: 70px;
     height: 30px;
-    color: black;
     border: none;
+    color: black;
     cursor: pointer;
     font-size: 15px;
-    left: 10px;
+    left: 420px;
     text-align: center;
     padding: 4.5px 3px;
-    background-color:white;
-        }
-        
-#nextButton{
+    background: none;
+    z-index: 8;
+}
+.reply-contents {
+    width: 1050px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 65px;
+    margin-left: 0px;
+    height: auto;
+}
+#nextButton {
     position: absolute;
     width: 70px;
     height: 30px;
@@ -196,24 +246,25 @@ button#button2.selected {
     border: none;
     cursor: pointer;
     font-size: 15px;
-    left: 234px;
+    left: 700px;
     text-align: center;
     padding: 4.5px 3px;
-    background-color: white;
-}  
+    background: none;
+    z-index: 100;
+}
 
-        #pagination span {
-            font-size: 18px;
-            margin: 0 10px;
-        }
-#comment-input{
-	width: 1100px;
+#pagination span {
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+#comment-input {
+    width: 1100px;
     height: 70px;
     border: 1px solid #ddd;
     outline: none;
     position: absolute;
     left: 400px;
-    
     top: 1200px;
     resize: none;
     font-family: inherit;
@@ -221,42 +272,61 @@ button#button2.selected {
     color: inherit;
     resize: none;
 }
-#comment-section{
-    position: absolute;
-    top: 991px;
-    left: 28px;
-    width: 1200px;
+
+#comment-section {
+    top: 0px;
+    position: relative;
+    left: 50px;
+    width: 1100px;
+    border-top: 1px solid #ccc;
 }
-#submitComment{
-    position: absolute;
-    top: 1650px;
-    left: 1446px;
+
+#submitComment {
+    position: relative;
+    top: 1418px;
+    left: 1425px;
     background-color: #28a745;
     border: none;
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    width: 100px;
+    width: 63px;
     height: 50px;
 }
-h3{
+
+#submitComment1 {
+    position: relative;
+    top: 1320px;
+    left: 1425px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 63px;
+    height: 50px;
+}
+
+h3 {
     width: 70px;
     position: absolute;
     font-size: 32px;
-    top: 1411px;
-    left: 351px;
+    top: 1441px;
+    left: 383px;
 }
-.comment-container input{
-	text-align:left;
+
+.comment-container input {
+    text-align: left;
 }
-#content{
-	margin: 0;
-    width: 1200px;
+
+#content {
+    margin: auto;
+    width: 1100px;
     height: 70px;
     border: 1px solid #ddd;
     outline: none;
     position: absolute;
-    left: 350px;
+    left: 387px;
     top: 1555px;
     resize: none;
     font-family: inherit;
@@ -264,42 +334,127 @@ h3{
     color: inherit;
     resize: none;
 }
-#name1{
+
+#content1 {
+    display: flex;
+    margin: auto;
+    width: 1100px;
+    height: 70px;
+    border: 1px solid #ddd;
+    outline: none;
     position: absolute;
-    top: 1518px;
-    left: 352px;
-    font-size: 20px;
-    width:50px;
-	
-}
-.comment-item{
-	display: flex;
-    flex-direction: column;
-	border-bottom: 1px solid #ccc;
-    overflow-wrap: break-word;
-    height:auto;
+    left: 387px;
+    top: 1265px;
+    resize: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    resize: none;
 }
 
-.comment-item h4{
-	font-size: 13px;
-	margin-top:20px;
+#name1 {
+    position: absolute;
+    top: 1518px;
+    left: 387px;
+    font-size: 20px;
+    width: 200px;
 }
-.comment-item h5{
-	order:1;
+
+.comment-item {
+    top: 5px;
+    left: 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ccc;
+    overflow-wrap: break-word;
+    height: auto;
+}
+
+.pagination-container {
+    margin-bottom: 10px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.pagination-container button {
+	position: relative;
+    height: 30px;
+    border: none;
+    width: 30px;
+    left: 500px;
+    padding: 3px 6px;
+    color: black;
+    background: none;
+    margin: 15px;
+}
+
+button.active {
+    border: 1px solid #ddd;
+}
+
+.comment-parent-form {
+    position: relative;
+    top: -32px;
+}
+
+.comment-actions {
+    position: relative;
+    height: 50px;
+}
+
+.comment-edit-form {
+    top: -97px;
+    position: relative;
+}
+
+small {
+    left: 1px;
+    top: -42px;
+    position: relative;
+}
+
+.comment-reply-form {
+	min-height: 200px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    position: relative;
+    background-color: #FAFBFC;
+    height: auto;
+    top: -4px;
+    border-radius: 10px;
+}
+
+.comment-reply-form.no-replies {
+    height: 150px;
+}
+
+.comment-content {
+    height: auto;
+}
+
+.comment-content h4 {
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.comment-item h5 {
+    order: 1;
     position: relative;
     top: -49px;
     font-size: 13px;
 }
-.comment-item p{
-	order:2;
-	top: -35px;
-    position: relative;
 
+.comment-item p {
+    order: 2;
+    top: 26px;
+    position: relative;
     font-size: 20px;
     overflow-wrap: break-word;
     width: 1200px;
 }
-.edit-button{
+
+.edit-button {
     color: #ffc107;
     border: none;
     background-color: transparent;
@@ -307,12 +462,13 @@ h3{
     font-size: 14px;
     cursor: pointer;
     position: relative;
-    left: 1079px;
+    left: 1016px;
     top: -104px;
 }
-.delete-button{
+
+.delete-button {
     position: relative;
-	left: 1117px;
+    left: 1058px;
     top: -135px;
     color: #dc3545;
     border: none;
@@ -321,7 +477,8 @@ h3{
     font-size: 14px;
     cursor: pointer;
 }
-.menu-button{
+
+.menu-button {
     display: block;
     position: relative;
     background-color: #fff;
@@ -330,27 +487,40 @@ h3{
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    left: 546px;
-    top: -50px;
+    left: 1068px;
+    top: -101px;
 }
-.edit-content{
+
+.edit-content {
     position: absolute;
-    top: -79px;
-    width: 1097px;
+    top: 9px;
+    width: 1000px;
     height: 70px;
     resize: none;
     border: 1px solid #ddd;
-	
 }
-.edit-form{
-	position:relative;
+
+.edit-form {
+    position: relative;
+}
+
+.reply-button {
+    height: 30px;
+    position: relative;
+    top: -9px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 50px;
+    margin-right: 13px;
 }
 
 .save-edit-button {
-	height: 30px;
+    height: 30px;
     position: relative;
-    top: -79px;
-    left: 1107px;
+    top: 9px;
+    left: 1007px;
     background-color: #28a745;
     color: white;
     border: none;
@@ -358,11 +528,12 @@ h3{
     width: 50px;
     margin-right: 13px;
 }
+
 .cancel-edit-button {
-	height: 30px;
+    height: 30px;
     position: relative;
-	top: -39px;
-    left: 1040px;
+    top: 49px;
+    left: 939px;
     background-color: #28a745;
     color: white;
     border: none;
@@ -370,206 +541,510 @@ h3{
     width: 50px;
     margin-right: 13px;
 }
- .current-page{
-		color: blue;
-		box-shadow: 0 0 0 1px gray; /* 회색 테두리 효과 */
+
+.current-page {
+    color: blue;
+    /* z-index: 100; */
+    box-shadow: 0 0 0 1px gray;
 }
-.votelist{
-	width:100%;
+
+.votelist {
+    width: 100%;
 }
-@media (max-width: 767px){
-	.votelist{
-		width:90%;
+
+.reply-form {
+    position: relative;
+}
+
+.reply-content {
+    top: 10px;
+    resize: none;
+    border: 0.5px solid #ddd;
+    left: 25px;
+    position: relative;
+    height: 66px;
+    width: 1050px;
+}
+
+.reply-container {
+    left: 17px;
+    position: relative;
+    display: block;
+    top: 15px;
+}
+.no-replies {
+    position: relative;
+    top: 5px;
+    left: 30px;
+}
+
+
+@media (max-width: 767px) {
+    .comment-actions {
+        top: -160px;
+        position: relative;
+    }
+	.reply-contents p {
+        left: 1px;
+        top: 37px;
+    }
+    .reply-contents h6 {
+        left: 8px;
+        position: relative;
+        top: -47px;
+        font-size: 10px;
+    }
+	.reply-contents {
+    width: 260px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 65px;
+    margin-left: 8px;
+    height: auto;
 	}
-	.vote-item{
-		width:90%;
-		margin-left:5%;
-		height: 654px;
-		border: 1px solid #ddd;
+    .comment-parent-form {
+        position: relative;
+        top: -5px;
+    }
+    .comment-content {
+		min-height: 169px;
         border-radius: 10px;
-       	margin-top: -70px;
-       	box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
-     		7px 7px 20px 0px rgba(0, 0, 0, .1),
-      		4px 4px 5px 0px rgba(0, 0, 0, .1);
-	}
-	.vote-item img{
-		width:100%;
-		margin-top: -24px;
-	}
-	.bar-container1{
+        height: auto;
+        position: relative;
+        width: 276px;
+        top: 8px;
+        left: 0px;
+        border: 1px solid #ccc;
+    }
+
+    .votelist {
+        width: 90%;
+    }
+
+    .vote-item {
+        width: 90%;
+        margin-left: 5%;
+        height: 654px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-top: -70px;
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5), 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+    }
+
+    .vote-item img {
         width: 100%;
-        left: 56%;
+        margin-top: -24px;
+    }
+
+    .bar-container1 {
+        width: 100%;
+        left: 51%;
         top: 18%;
     }
-	.bar-container2{
+
+    .bar-container2 {
         width: 100%;
         top: 13%;
         left: 1px;
-	}
-	.button-container #button1 {
+    }
+
+    .button-container #button1 {
         width: 18%;
         font-size: 13px;
         position: relative;
-        left: 106px;
+        left: 120px;
         top: 492px;
     }
+
     .button-container #button2 {
         width: 18%;
         font-size: 13px;
         position: relative;
-        left: 58px;
-        top: 594px;
+        left: 66px;
+        top: 592px;
     }
-	.vote-item h2{
-    	top: 46%;
-    	position: relative;
-    	left: 2px;
-    	font-size: 13px;
-	}
-	.vote-item p{
-		margin-bottom: 76px;
+
+    .vote-item h2 {
+        top: 51%;
+        position: relative;
+        left: 2px;
+        font-size: 13px;
+    }
+
+    .vote-item p {
+        margin-bottom: 76px;
         position: relative;
         left: 2px;
         font-size: 13px;
         top: 14%;
-	}
+    }
 
-	.percentage{
-		position:absolute;
-		top:7%;
-		left:227px;
-	}
-	.pageContainer{
+    .percentage {
+        position: absolute;
+        top: 7%;
+        left: 227px;
+    }
+
+    .pageContainer {
         position: relative;
         left: -463px;
-        top: -8px;	
-	}
-	.pageContainer #prevPage{
-		left: 461px;
+        top: -8px;
+    }
+
+    .pageContainer #prevPage {
+        left: 461px;
         top: 58px;
-	}
-	.pageContainer #nextPage{
-		left: 731px;
+    }
+
+    .pageContainer #nextPage {
+        left: 731px;
         top: -12px;
-	}
+    }
 }
+
+@media(max-width: 767px) {
+    .comment-content h4 {
+        margin-left: 15px;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 767px) {
-	.comment-container{
-        left: -320px;
-        top: -789px;
-        position: absolute;
-	}
-	.comment-container h3{
-		font-size:20px;
-		width:50px;
-	}
-	.comment-container #name1{
-		top:1450px;
-		
-	}
-	.comment-container #content{
-        position: absolute;
+    .comment-container {
+        left: -334px;
+        top: -1390px;
+        position: relative;
+    }
+
+    .comment-container h3 {
+        font-size: 20px;
+        width: 50px;
+        left: 349px;
+    }
+
+    .comment-container #name1 {
         top: 1479px;
+        width: 200px;
+        font-size: 13px;
+        left: 349px;
+    }
+
+    .comment-container #content {
+        left: 348px;
+        position: absolute;
+        top: 1505px;
         width: 286px;
         height: 16%;
-	}
-	.comment-container #submitComment{
-        top: 635%;
-        left: 535px;
-        height: 14%;
-	}
+    }
+
+    .comment-container #submitComment {
+        top: 1316px;
+        left: 571px;
+        height: 40px;
+    }
 }
+
 @media (max-width: 767px) {
-	#comment-section{
-		left: 8px;
-        width: 80%;
+    #comment-section {
+        left: 12px;
+        width: 286px;
         position: relative;
-        top: 300px;
-		
-	}
-	.comment-item{
+        top: -53px;
+        background: white;
+    }
+
+    .comment-item {
+        min-height: 281px;
         position: relative;
-       	top: -103px;
+        top: 10px;
         width: 276px;
-        left: 9px;
+        left: 5px;
         height: auto;
-	}
-	.comment-item p{
-		position: relative;
-        top: 13px;
+    }
+
+    .comment-item p {
+        position: relative;
+        top: 22px;
         font-size: 16px;
         overflow-wrap: break-word;
         word-wrap: break-word;
-    	word-break: break-word;
+        word-break: break-word;
         width: 276px;
-	}
-	.comment-item h5{
+    }
+
+    .comment-reply-form p {
+		left: 10px;
+        position: relative;
+        top: 34px;
+    }
+
+    .comment-content p {
+        min-height: 95px;
+        width: 89%;
+        border-radius: 10px;
+        position: relative;
+        overflow-wrap: break-word;
+        top: 14px;
+        left: 15px;
+        border: 1px solid #ccc;
+        background: #E2E2E2;
+        padding: 0px 10px;
+    }
+
+    .comment-item h5 {
         top: 35px;
         position: absolute;
         font-size: 13px;
-	}
-	.comment-item .menu-button {
-        top: 0px;
+    }
+
+    .comment-content h5 {
+        left: 15px;
         position: absolute;
+        top: 40px;
+    }
+
+    .comment-item .menu-button {
+        top: 5px;
+        position: relative;
         left: 237px;
-	}
-	.comment-item .edit-button {
-		border: 1px solid #ddd;
-        top: 33px;
-        position: absolute;
-        left: 231px;
-        width:50px;
-        z-index: 1000;
+    }
+
+    .comment-item .edit-button {
+        border: 1px solid #ddd;
+        top: 3px;
+        position: relative;
+        left: 221px;
+        width: 55px;
+        z-index: 7;
         background-color: white;
-	}
-	.comment-item .delete-button {
- 		border: 1px solid #ddd;
-        top: 65px;
-        position: absolute;
-        left: 231px;
-        width: 50px;
-        z-index: 1000;
-        background-color:white;
-	}
-	.edit-content{
-        position: relative;
-        width: 200px;
-        top: -29px;
-        height: 70px;
-	}
-	.edit-form {
-		position:relative;
-	}
+    }
 
-	.save-edit-button{
-		left: 6px;
+    .comment-item .delete-button {
+        border: 1px solid #ddd;
+        top: 2px;
         position: relative;
-        top: -78px;
-		
-	}
-	.cancel-edit-button{
-		left: 211px;
+        left: 221px;
+        width: 55px;
+        z-index: 7;
+        background-color: white;
+       }
+
+    .edit-content {
+        left: 17px;
         position: relative;
-        top: -69px;
-		
-	}
+        width: 248px;
+        top: 2px;
+        height: auto;
+
+    }
+
+    .single-post {
+        background: white;
+        border-radius: 10px;
+        width: 317px;
+        left: 0px;
+        border: 1px solid #ddd;
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5), 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+    }
+
+    .edit-form {
+        position: relative;
+    }
+
+    .save-edit-button {
+        left: 150px;
+        position: relative;
+        top: 3px;
+    }
+
+    .cancel-edit-button {
+        left: 146px;
+        position: relative;
+        top: 3px;
+    }
+
+    button.post-reply-button {
+        left: 218px;
+        position: relative;
+        display: inline-block;
+        padding: 5px 5px;
+        background-color: #EAEAEA;
+        border: none;
+        border-radius: 5px;
+        color: black;
+        top: 6px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .reply-content {
+        position: relative;
+        left: 14px;
+        width: 90%;
+    }
+
+    .reply-form {
+        position: relative;
+        top: 10px;
+    }
 }
+
 @media (max-width: 767px) {
-	#pagination {
+    #pagination {
         position: relative;
-        left: -3px;
-        top: 209px;
-        width: 400px;
-	}
-	#prevButton{
-		left:10px;
-	}
-	#pageButton{
-		left: -42px;
-	}
+        left: 0px;
+        top: -6px;
+        width: 313px;
+    }
+
+    #prevButton {
+        left: 10px;
+    }
+
+    #nextButton {
+        left: 231px;
+    }
+
+    #pageButton {
+        left: -1px;
+    }
+
+    .pagination-container {
+		left: 0px;
+        top: 0px;
+        position: relative;
+    }
+    .pagination-container button {
+    position: relative;
+    height: 30px;
+    border: none;
+    width: 30px;
+    left: 500px;
+    padding: 3px 6px;
+    color: black;
+    background: none;
+    margin: 15px;
 }
 
-/* 로그인 후 네비바 */
+    .no-replies {
+        position: relative;
+        top: 54px;
+        left: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    small {
+		left: 8px;
+        top: -43px;
+        position: relative;
+    }
+
+    .reply-button {
+        padding: 3px 8px;
+        display: flex;
+        position: relative;
+        top: -10px;
+        left: 0px;
+    }
+
+    .comment-edit-form {
+		left: -1px;
+        top: -153px;
+        position: relative;
+        height: auto;
+        overflow-wrap: break-word;
+    }
+
+    .replies-container p {
+        position: relative;
+        top: 10px;
+    }
+
+    .reply-content {
+        top: 10px;
+        resize: none;
+        border: 0.5px solid #ddd;
+        left: 8px;
+        position: relative;
+        height: 30px;
+        width: 260px;
+    }
+
+    .comment-reply-form {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        position: relative;
+        background-color: #FAFBFC;
+        height: auto;
+        top: 5px;
+        border-radius: 10px;
+    }
+
+    .reply-container {
+        position: relative;
+        display: block;
+        top: 0px;
+        left: 0px;
+    }
+
+    button.post-reply-button {
+        left: 223px;
+        position: relative;
+        display: inline-block;
+        padding: 5px 5px;
+        background-color: #EAEAEA;
+        border: none;
+        border-radius: 5px;
+        color: black;
+        top: 10px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .no-replies {
+        position: relative;
+        top: 40px;
+        left: 13px;
+        font-size: 13px;
+    }
+}
+
+.replies-container {
+    position: relative;
+    top: 667px;
+}
+
+.replies-container p {
+    position: relative;
+    top: 10px;
+}
+
+#userDropdownContainer {
+    position: relative;
+}
+
+#userName {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.profile-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.vote-list {
+    left: -19px;
+    position: relative;
+    width: 354px;
+}
 
 .dropdown {
     position: relative;
@@ -600,7 +1075,7 @@ h3{
     position: absolute;
     top: 100%;
     left: 0;
-    width: 200px; /* 메뉴 너비 조정 */
+    width: 200px;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -621,9 +1096,7 @@ h3{
     padding: 10px 15px;
     text-decoration: none;
     color: inherit;
-   
 }
-
 
 .dropdown-menu li:last-child a {
     border-bottom: none;
@@ -639,13 +1112,53 @@ h3{
         display: none;
     }
 
-    .dropdown-toggle:focus + .dropdown-menu,
-    .dropdown-toggle:active + .dropdown-menu {
+    .dropdown-toggle:focus + .dropdown-menu, .dropdown-toggle:active + .dropdown-menu {
         display: block;
     }
 }
-/* 로그인 끝 */
 
-.vote-list{
-	width:100%;
+#replycontain {
+    position: absolute;
+    top: 290px;
+}
+
+@media (max-width: 767px) {
+    .main-header {
+        padding: 11px 0;
+        z-index: 1000;
+    }
+   .modal-footer button{
+	width:63px;
+	text-align: center;
+	position:relative;
+	left:10px;
+  }
+}
+.modal-content {
+    width: 320px;
+    height: 200px;
+}
+  .modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* 전체 높이를 사용하여 중앙에 정렬 */
+  }
+  .modal-footer button{
+    width: 63px;
+    text-align: center;
+    position: relative;
+    left: -116px;
+    padding: 22px 15px;
+    background:#7150BD;
+  }
+  .modal-footer {
+	border:none;
+  }
+  .modal-header {
+	border: none;
+	text-align:center;
+}
+.modal-body {
+	text-align:center;
 }

@@ -4,214 +4,238 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>리뷰 페이지</title>
-
-	
-	<!-- CSS here -->
-	   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-	   <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
-	   <link rel="stylesheet" th:href="@{/css/slicknav.css}">
-	   <link rel="stylesheet" th:href="@{/css/animate.min.css}">
-	   <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
-	   <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
-	   <!--<link rel="stylesheet" th:href="@{/css/themify-icons.css}">
-	   <link rel="stylesheet" th:href="@{/css/themify-icons.css}">-->
-	   <link rel="stylesheet" th:href="@{/css/slick.css}">
-	   <link rel="stylesheet" th:href="@{/css/nice-select.css}">
-	   <link rel="stylesheet" th:href="@{/css/style.css}">
-	   <link rel="stylesheet" th:href="@{/css/responsive.css}">
-	   <link rel="stylesheet" th:href="@{/css/nav.css}">
-	   <link rel="stylesheet" th:href="@{/css/review.css}">
-  
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/slicknav.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <link rel="stylesheet" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" th:href="@{/css/review.css}">
 </head>
-<body>
-	<header>
-	        <!-- Header Start -->
-	       <div class="header-area header-transparrent ">
-	            <div class="main-header header-sticky">
-	                <div class="container">
-	                    <div class="row align-items-center">
-	                        <!-- Logo -->
-	                        <div class="col-xl-2 col-lg-2 col-md-2">
-	                            <div class="logo">
-	                                <a href="#" class="logo-text">CIRCLE TAROT</a>
-	                                <div class="hover-content">
-	                                    <span class="hover-text left-text">동그</span>
-	                                    <div class="logo-image"></div>
-	                                    <span class="hover-text right-text">라미</span>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="col-xl-10 col-lg-10 col-md-10">
-	                            <!-- Main-menu -->
-	                            <div class="main-menu f-right d-none d-lg-block">
-	                                <nav>
-	                                    <ul id="navigation">    
-	                                        <li class="active"><a th:href="@{/index}"> Home</a></li>
-	                                        <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
-	                                        <li><a th:href="@{/vote}">논쟁 투표</a></li>
-	                                        <li><a th:href="@{/review}">리뷰</a></li>
-											<li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
-											     <a th:href="@{/login}">로그인 / 회원가입</a>
-											</li>
-											<li class="dropdown" style="margin-right: -100px;" th:if="${session.loggedInUser != null}">
-											     <a href="#" class="dropdown-toggle">
-											          <img src="/images/mainlogo.png" alt="프로필 이미지" class="profile-img">
-											          <span th:text="${session.loggedInUser.nickname}">사용자 이름</span>
-											     </a>
-											     <ul class="dropdown-menu">
-											     	<li><a th:href="@{/mypage}">마이페이지</a></li>
-											     	<li><a th:href="@{/logout}">로그아웃</a></li>
-											   </ul>
-										  </li>
-	                                </nav>
-	                            </div>
-	                        </div>
-	                        <!-- Mobile Menu -->
-	                        <div class="col-12">
-	                            <div class="mobile_menu d-block d-lg-none"></div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	       </div>
-	        <!-- Header End -->
-	    </header>
-
-<main>
-    <div class="review-summary">
-        <h2>리뷰 <span id="review-count" th:text="${reviewCount}">0</span></h2>
-        <div class="review-stars-container">
-            <div class="rating-score">
-                <span class="fixed-star">★</span>
-                <span class="rating-value" th:text="${ratingValue}">0.0</span>
-                <span class="rating-details" th:text="${ratingDetails}">0개의 리뷰</span>
-            </div>
-            <div class="divider"></div>
-            <div class="satisfaction">
-                <div class="stars">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
+<body class="body">
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparrent ">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-2">
+                            <div class="logo">
+                                <a th:href="@{/}" class="logo-text">CIRCLE TAROT</a>
+                                <div class="hover-content">
+                                    <span class="hover-text left-text">동그</span>
+                                    <div class="logo-image"></div>
+                                    <span class="hover-text right-text">라미</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li class="active"><a th:href="@{/}"> Home</a></li>
+                                        <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+                                        <li><a th:href="@{/vote}">논쟁 투표</a></li>
+                                        <li><a th:href="@{/review}">후기</a></li>
+                                        <li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
+                                            <a th:href="@{/login}">로그인 / 회원가입</a>
+                                        </li>
+                                        <li class="dropdown" style="margin-right: -100px;" th:if="${session.loggedInUser != null}">
+                                            <a href="#" class="dropdown-toggle">
+                                                <img src="/images/mainlogo.png" alt="프로필 이미지" class="profile-img">
+                                                <span th:text="${session.loggedInUser.nickname}">사용자 이름</span>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a th:href="@{/mypage}">마이페이지</a></li>
+                                                <li><a th:href="@{/logout}">로그아웃</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- Header End -->
+    </header>
 
-    <!-- 필터 버튼들 -->
-    <div class="review-filter-buttons" id="review-filter-buttons">
-        <button class="filter-btn" data-category="all">전체</button>
-        <button class="filter-btn" data-category="category1">연애</button>
-        <button class="filter-btn" data-category="category2">금전</button>
-        <button class="filter-btn" data-category="category3">직장</button>
-        <button class="filter-btn" data-category="category4">학업</button>
-        <button class="filter-btn" data-category="category5">대인</button>
-    </div>
-
-    <div class="review-container" id="reviews">
-        <div th:each="review : ${reviews}">
-            <div class="review-post" th:data-category="${review.category}">
-                <img th:src="@{/images/basic.png}" th:alt="${review.title}">
-                <h2 th:text="${review.title}">리뷰 제목</h2>
-                <p class="review-author">BY <span th:text="${review.author}">닉네임</span> | <span th:text="${review.date}">2023-07-01</span> | <span class="review-stars" th:text="${'★'.repeat(review.rating) + '☆'.repeat(5 - review.rating)}">★★★★★</span></p>
-                <p class="review-excerpt" th:text="${review.content}">리뷰 내용</p>
-                <a th:href="@{/about.html}" class="review-read-more">타로보러가기 »</a>
+    <main class="review-main">
+        <section>
+            <h1 class="custom-h1">리뷰 모아보기</h1>
+            <div class="review-summary">
+                <h2 class="custom-h2">리뷰 <span id="review-count">0</span></h2>
+                <div class="review-stars-container">
+                    <div class="review-rating-score">
+                        <span class="review-fixed-star">★</span>
+                        <span class="review-rating-value">0.0</span>
+                        <span class="review-rating-details">0개의 리뷰</span>
+                    </div>
+                    <div class="review-divider"></div>
+                    <div class="review-satisfaction">
+                        <div class="custom-average-stars" id="average-review-stars">
+                            <span class="custom-average-star">★</span>
+                            <span class="custom-average-star">★</span>
+                            <span class="custom-average-star">★</span>
+                            <span class="custom-average-star">★</span>
+                            <span class="custom-average-star">★</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <div class="review-filter-buttons" id="review-filter-buttons">
+            <button class="review-filter-btn" data-category="0">전체</button>
+            <button class="review-filter-btn" data-category="1">연애</button>
+            <button class="review-filter-btn" data-category="2">금전</button>
+            <button class="review-filter-btn" data-category="3">직장</button>
+            <button class="review-filter-btn" data-category="4">학업</button>
+            <button class="review-filter-btn" data-category="5">대인</button>
+        </div>
+
+        <div class="review-container" id="reviews">
+            <!-- 리뷰 데이터가 여기에 추가됩니다 -->
+        </div>
+
+        <div class="review-pagination">
+            <!-- 페이지네이션 링크가 여기에 추가됩니다 -->
+        </div>
+    </main>
+
+    <div id="reviewModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <span class="custom-close" onclick="closeModal()">&times;</span>
+            <h2 class="custom-modal-title">리뷰 수정하기</h2>
+            <p>동그라미가 들려준 이야기를 수정하여 더 나은 경험을 공유하세요!</p>
+            <div class="custom-review-details">
+                <div class="custom-review-user">
+                    <img src="images/basic.png" alt="Default Image" class="custom-modal-image">
+                    <div class="custom-user-info">
+                        <span class="custom-user-name">닉네임</span>
+                        <span class="custom-user-role">#소주제</span>
+                    </div>
+                </div>
+                <div class="custom-review-rating">
+                    <label for="custom-modal-rating">평점 <span class="custom-modal-rating-score">3점</span></label>
+                    <div id="custom-modal-rating">
+                        <span class="custom-modal-star">★</span>
+                        <span class="custom-modal-star">★</span>
+                        <span class="custom-modal-star">★</span>
+                        <span class="custom-modal-star">☆</span>
+                        <span class="custom-modal-star">☆</span>
+                    </div>
+                </div>
+            </div>
+            <form id="reviewForm" method="post">
+                <textarea id="custom-review-text" name="reviewText" placeholder="50자 미만 작성해주세요"></textarea>
+                <div id="custom-character-count">0/50</div>
+                <input type="hidden" id="ratingScore" name="ratingScore" value="3">
+                <div class="custom-modal-buttons">
+                    <button type="button" id="custom-update-review">수정</button>
+                    <button type="button" id="custom-delete-review">삭제</button>
+
+                </div>
+            </form>
         </div>
     </div>
+    
+		<!-- 리뷰 삭제 완료 모달 -->
+	<div id="deletion-modal" class="deletion-modal">
+	    <div class="deletion-modal-content">
+	        <p>삭제되었습니다.</p>
+	        <button class="modal-ok-button" onclick="closeDeletionModal()">OK</button>
+	    </div>
+	</div>
+	
+		<!-- 리뷰 수정 완료 모달 -->
+	<div id="edit-review-modal" class="edit-review-modal">
+	    <div class="edit-review-modal-content">
+	        <p>리뷰가 성공적으로 수정되었습니다.</p>
+	        <button class="edit-review-ok-button" onclick="closeEditReviewModal()">OK</button>
+	    </div>
+	</div>
+	
+		<!-- 삭제 확인 모달 -->
+	<div id="delete-warning-modal" class="warning-modal">
+	    <div class="warning-modal-content">
+	        <h2 class="warning-modal-title">삭제하시겠습니까?</h2>
+	        <p>삭제 후 다시 복구시킬 수 없습니다.</p>
+	        <div class="warning-modal-buttons">
+	            <button type="button" id="confirm-delete-button">삭제</button>
+	            <button type="button" class="cancel-button" onclick="closeWarningModal()">취소</button>
+	        </div>
+	    </div>
+	</div>
 
-    <!-- 페이지네이션 -->
-    <div class="review-pagination">
-        <a href="#" class="pagination-prev">이전</a>
-        <a href="#" class="pagination-page">1</a>
-        <a href="#" class="pagination-page">2</a>
-        <a href="#" class="pagination-page">3</a>
-        <a href="#" class="pagination-next">다음</a>
-    </div>
-
-    <!-- JavaScript로 리뷰 데이터를 전달 -->
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        const reviews = /*[[${reviews}]]*/ [];
-        /*]]>*/
-    </script>
-</main>
-
-<footer>
-    <div class="footer-main">
-        <div class="footer-area footer-padding">
-            <hr class="review-gray-line">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-lg-3 col-md-4 col-sm-8">
-                        <div class="single-footer-caption mb-30">
-                            <div class="footer-logo">
-                                <div class="logo">
-                                    <a href="#" class="footer-text">CIRCLE TAROT</a>
+    <footer>
+        <div class="footer-main">
+            <div class="footer-area footer-padding">
+                <hr class="gray-line">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-lg-3 col-md-4 col-sm-8">
+                            <div class="single-footer-caption mb-30">
+                                <div class="footer-logo">
+                                    <div class="logo">
+                                        <a href="#" class="footer-text">CIRCLE TAROT</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-xl-12">
-                        <div class="footer-copy-right">
-                            <p>
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                                All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DongramiTarot</a>
-                            </p>
+                    <div class="row align-items-center">
+                        <div class="col-xl-12">
+                            <div class="footer-copy-right">
+                                <p>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                    All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DongramiTarot</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
+    <!-- 현재 사용자 ID를 전달하기 위한 숨겨진 필드 -->
+	<input type="hidden" id="currentUserNickname" th:value="${session.loggedInUser.nickname}">
 
 
-<!-- JS here -->
-	
-	<!-- All JS Custom Plugins Link Here here -->
-	<script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
-
-	<!-- Jquery, Popper, Bootstrap -->
-	<script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
-	<script th:src="@{/js/popper.min.js}"></script>
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-	<!-- Jquery Mobile Menu -->
-	<script th:src="@{/js/jquery.slicknav.min.js}"></script>
-
-	<!-- Jquery Slick , Owl-Carousel Plugins -->
-	<script th:src="@{/js/owl.carousel.min.js}"></script>
-	<script th:src="@{/js/slick.min.js}"></script>
-
-	<!-- One Page, Animated-HeadLin -->
-	<script th:src="@{/js/wow.min.js}"></script>
-	<script th:src="@{/js/animated.headline.js}"></script>
-
-	<!-- Scrollup, nice-select, sticky -->
-	<script th:src="@{/js/jquery.scrollUp.min.js}"></script>
-	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
-	<script th:src="@{/js/jquery.sticky.js}"></script>
-	<script th:src="@{/js/jquery.magnific-popup.js}"></script>
-
-	<!-- contact js -->
-	<script th:src="@{/js/contact.js}"></script>
-	<script th:src="@{/js/jquery.form.js}"></script>
-	<script th:src="@{/js/jquery.validate.min.js}"></script>
-	<script th:src="@{/js/mail-script.js}"></script>
-	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
-
-	<!-- Jquery Plugins, main Jquery -->	
-	<script th:src="@{/js/plugins.js}"></script>
-	<script th:src="@{/js/main.js}"></script>
-
-	<!--리뷰 js-->
-	<script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
- 	<script defer th:src="@{/js/review.js}"></script>
-
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+    <script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.slicknav.min.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/slick.min.js}"></script>
+    <script th:src="@{/js/wow.min.js}"></script>
+    <script th:src="@{/js/animated.headline.js}"></script>
+    <script th:src="@{/js/jquery.scrollUp.min.js}"></script>
+    <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <script th:src="@{/js/jquery.magnific-popup.js}"></script>
+    <script th:src="@{/js/contact.js}"></script>
+    <script th:src="@{/js/jquery.form.js}"></script>
+    <script th:src="@{/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/js/mail-script.js}"></script>
+    <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <script defer th:src="@{/js/review.js}"></script>
 </body>
 </html>

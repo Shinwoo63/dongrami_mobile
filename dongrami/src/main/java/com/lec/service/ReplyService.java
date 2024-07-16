@@ -30,13 +30,11 @@ public class ReplyService {
     public Reply getReplyById(int id) {
         return replyRepository.findById(id).orElse(null);
     }
-
-	/*
-	 * public List<Reply> getRepliesByVoteId(int voteId) { return
-	 * replyRepository.findByVoteId(voteId); }
-	 */
-    public Page<Reply> getRepliesByVoteId(int voteId, Pageable pageable) {
-        return replyRepository.findByVoteId(voteId, pageable);
+   public Page<Reply> getRepliesByParentReId(int parentReId, Pageable pageable) {
+        return replyRepository.findByParentReId(parentReId, pageable);
+    }
+    public Page<Reply> getRepliesByVoteId(int voteId, int level, Pageable pageable) {
+        return replyRepository.findByVoteId(voteId, level, pageable);
     }
 
     public ReplyDTO createReply(ReplyDTO replyDTO) {

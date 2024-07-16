@@ -1,15 +1,18 @@
 package com.lec.repository;
 
-
-import java.util.List;
+import com.lec.entity.SavedResult;
+import com.lec.entity.Subcategory;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.util.*;
 
-import com.lec.entity.Subcategory;
+import java.util.Optional;
 
 @Repository
-public interface SubcategoryRepository extends JpaRepository<Subcategory, Integer>{
+public interface SubcategoryRepository extends JpaRepository<Subcategory, Integer> {
 	List<Subcategory> findTop5ByOrderByCountDesc();
 
+    // 추가된 메서드
+    Optional<Subcategory> findById(Integer subcategoryId);
 }

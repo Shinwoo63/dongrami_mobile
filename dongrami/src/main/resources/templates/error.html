@@ -23,7 +23,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/responsive.css}">
     <link rel="stylesheet" th:href="@{/css/nav.css}">
-    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/error.css}">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
 		                        <!-- Logo -->
 		                        <div class="col-xl-2 col-lg-2 col-md-2">
 		                            <div class="logo">
-		                                <a href="#" class="logo-text">CIRCLE TAROT</a>
+		                               <a th:href="@{/}" class="logo-text">CIRCLE TAROT</a>
 		                                <div class="hover-content">
 		                                    <span class="hover-text left-text">동그</span>
 		                                    <div class="logo-image"></div>
@@ -46,7 +46,7 @@
 		                        </div>
 		                        <div class="col-xl-10 col-lg-10 col-md-10">
 		                            <!-- Main-menu -->
-		                            <div class="main-menu f-right d-none d-lg-block">
+		                            <div class="main-menu f-right d-none d-lg-block" style="width: 100%;">
 		                                <nav>
 		                                    <ul id="navigation">    
 		                                        <li class="active"><a th:href="@{/index}"> Home</a></li>
@@ -80,73 +80,57 @@
 		        <!-- Header End -->
 		    </header>
 
-    <!-- 메인 콘텐츠 -->
-    <div class="main-content1">
-        <div class="container1">
-            <div class="login-box1">
-                <div class="login-content1">로그인 및 회원가입</div>
-                <div class="login-container1">
-                    <a href=""><img th:src="@{/images/login_logo.png}" alt="Login Logo"></a>
-                    <div class="social-login">
-                        <a th:href="@{/oauth2/authorization/naver}" class="naver"><img th:src="@{/images/naver_logo.png}" alt="Naver Icon"></a>
-                        <a th:href="@{/oauth2/authorization/kakao}" class="kakao"><img th:src="@{/images/kakao_logo.png}" alt="Kakao Icon"></a>
-                        <a th:href="@{/oauth2/authorization/google}" class="google"><img th:src="@{/images/google_logo.png}" alt="Google Icon"></a>
-                        <a th:href="@{/signup}" class="login"><img th:src="@{/images/tarot_logo.png}" alt="Login Icon"></a>    
-                    </div>     
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 			<div class="error_container">
-			    <div class="error_image">
-			        <img src="./images/basic.png" alt="" id="error_logo">
-			        <img src="./images/error.png" alt="" id="error_question">
+			        <div class="error_image">
+			            <img src="/images/error.png" alt="Error" id="error_question">
+			            <img src="/images/basic.png" alt="Logo" id="error_logo">
+			        </div>
+			        <div class="error_msg">
+			            <p id="error_code" th:text="'Error code ' + ${statusCode}">Error Code</p>
+			            <p id="error_message" th:text="${errorMsg}">Error Message</p>
+			        </div>
 			    </div>
-			    <div class="error_msg">
-			        <span id="msg">Error 발생</span>
-			    </div>
-			</div>
-		<script th:src="@{/js/error.js}"></script>
 		
 		
 		
 		    <!-- 푸터 -->     
-		    <footer>
-		        <!-- Footer Start-->
-		        <div class="footer-main">
-		            <div class="footer-area footer-padding">
-		                <hr class="gray-line">
-		                <div class="container">  
-		                    <div class="row justify-content-between">
-		                        <div class="col-lg-3 col-md-4 col-sm-8">
-		                            <div class="single-footer-caption mb-30">
-		                                <!-- logo -->
-		                                <div class="footer-logo">
-		                                    <div class="logo">
-		                                        <a href="#" class="logo-text">CIRCLE TAROT</a>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                        </div>
-		                    </div>
-		                    <!-- Copy-Right -->
-		                    <div class="row align-items-center">
-		                        <div class="col-xl-12">
-		                            <div class="footer-copy-right">
-		                                <p>
-		                                    Copyright &copy;<script th:inline="javascript">document.write(new Date().getFullYear());</script>
-		                                    All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DongramiTarot</a>
-		                                </p>
-		                            </div>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		            <!-- Footer End-->
-		        </div>
-		    </footer>
+			<footer>
+			    <!-- Footer Start-->
+			    <div class="footer-main">
+			        <div class="footer-area footer-padding">
+			            <hr class="gray-line">
+			            <div class="container">               
+			                <div class="row justify-content-between">
+			                    <div class="col-lg-3 col-md-4 col-sm-8">
+			                        <div class="single-footer-caption mb-30">
+			                            <!-- logo -->
+			                            <div class="footer-logo">
+			                                <div class="logo">
+			                                    <a href="#" class="footer-text">CIRCLE TAROT</a>
+			                                </div>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			                <!-- Copy-Right -->
+			                <div class="row align-items-center">
+			                    <div class="col-xl-12">
+			                        <div class="footer-copy-right">
+			                            <p>
+			                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+			                                All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DongramiTarot</a>
+			                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			                            </p>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			        <!-- Footer End-->
+			    </div>
+			</footer>
 
 		    <!-- JS here -->
 		    <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
@@ -169,6 +153,7 @@
 		    <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
 		    <script th:src="@{/js/plugins.js}"></script>
 		    <script th:src="@{/js/main.js}"></script>
+			<script th:src="@{/js/error.js}"></script>
 		</body>
 		</html>
     </body>

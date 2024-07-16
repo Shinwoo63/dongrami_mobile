@@ -7,11 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
    
-    
-    @GetMapping("/review")
-    public String reviewPage() {
-        return "review";
-    }
+   
     
     @GetMapping("/mypage")
     public String myPage() {
@@ -52,15 +48,9 @@ public class PageController {
     public String index() {
         return "index";
     }
-    
-    @GetMapping("/tarot")
-    public String tarot() {
-    	return "tarot";
-    }
-    
-    
-    @GetMapping("/result")
-    public String result() {
-    	return "result";
+
+       @GetMapping("/download")
+    public String downLoad() {
+    	return "download";
     }
 }

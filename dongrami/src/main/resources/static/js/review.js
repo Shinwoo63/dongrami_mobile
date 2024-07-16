@@ -1,134 +1,285 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const reviewContainer = document.getElementById('reviews');
-    const reviewCountElement = document.getElementById('review-count');
-    const ratingValueElement = document.querySelector('.rating-value');
-    const ratingDetailsElement = document.querySelector('.rating-details');
-    const starElements = document.querySelectorAll('.stars .star');
-    const paginationContainer = document.getElementById('pagination');
+function closeEditReviewModal() {
+    const $editReviewModal = $('#edit-review-modal');
+    $editReviewModal.hide();
+}
 
-    const reviewsPerPage = 10;
-    let currentPage = 1;
+function showEditReviewModal() {
+    const $editReviewModal = $('#edit-review-modal');
+    $editReviewModal.show();
+}
 
-    // 기존 리뷰 데이터
-    const reviews = [
-        {
-            image: "assets/images/love.png", // 이미지 URL을 실제 이미지로 교체하세요
-            title: '#연애운',
-            text: '성향에 대해 정말 정확히 맞췄어요! 참고해서 꼭 만날게요.. 평소에 사주를 배우자운 들어오는 시기가 비슷하기도 한데 그때 만나서 결혼하면 애를 낳을 수 있을지 걱정이네요 ㅎㅎㅎ',
-            stars: 5,
-            date: '2023.06.01'
-        },
-        // 추가 리뷰 데이터
-    ];
+function closeDeletionModal() {
+    const $deletionModal = $('#deletion-modal');
+    $deletionModal.hide();
+}
 
-    // 새로운 리뷰 추가
-    const newReviewText = localStorage.getItem('reviewText');
-    const newRatingScore = localStorage.getItem('ratingScore');
+function showDeletionModal() {
+    const $deletionModal = $('#deletion-modal');
+    $deletionModal.show();
+}
 
-    if (newReviewText && newRatingScore) {
-        const newReview = {
-            image: "assets/images/default.png", // 기본 이미지
-            title: `#${localStorage.getItem('subject')}`,
-            text: newReviewText,
-            stars: parseInt(newRatingScore),
-            date: new Date().toISOString().split('T')[0]
+$(document).ready(function () {
+    const $reviewForm = $('#reviewForm');
+    let editingReviewId = null;
+
+    // 현재 로그인된 사용자 닉네임을 hidden input 필드에서 가져오기
+    const currentUserNickname = $('#currentUserNickname').val();
+
+    // 리뷰 텍스트 입력 시 글자 수 업데이트
+    $('#custom-review-text').on('input', function() {
+        const currentLength = $(this).val().length;
+        $('#custom-character-count').text(`${currentLength}/50`);
+    });
+
+    $reviewForm.submit(function (event) {
+        event.preventDefault();
+
+        const reviewText = $('#custom-review-text').val().trim();
+        const rating = parseInt($('#ratingScore').val());
+        const userId = '현재_로그인된_사용자_ID'; // 실제 로그인된 사용자 ID를 사용
+        const subcategoryId = 1; // 예시 값
+        const resultId = 1; // 예시 값
+
+        // 유효성 검사
+        if (!reviewText) {
+            alert('리뷰 텍스트를 입력해 주세요.');
+            return;
+        }
+        if (isNaN(rating) || rating < 1 || rating > 5) {
+            alert('유효한 평점을 입력해 주세요 (1-5).');
+            return;
+        }
+
+        const review = {
+            rating: rating,
+            reviewText: reviewText,
+            reviewCreate: new Date().toISOString(),
+            user_id: userId,
+            subcategory_id: subcategoryId,
+            result_id: resultId
         };
-        reviews.push(newReview);
-        localStorage.removeItem('reviewText');
-        localStorage.removeItem('ratingScore');
-        localStorage.removeItem('subject'); // 추가된 부분: 리뷰 주제 제거
-    }
 
-    function renderReviews(page) {
-        reviewContainer.innerHTML = '';
-        const start = (page - 1) * reviewsPerPage;
-        const end = start + reviewsPerPage;
-        const pageReviews = reviews.slice(start, end);
+        const method = editingReviewId ? 'PUT' : 'POST';
+        const url = editingReviewId ? `/review/api/reviews/${editingReviewId}` : '/review/api/reviews';
 
-        pageReviews.forEach(review => {
-            const reviewCard = document.createElement('div');
-            reviewCard.className = 'review-card';
-            reviewCard.innerHTML = `
-                <button class="next-button">&gt;</button>
-                <img src="${review.image}" alt="Review Image" class="review-image">
-                <div class="review-content">
-                    <div class="review-header">
-                        <div class="review-title">${review.title}</div>
-                        <div class="review-meta">
-                            <div class="stars">
-                                ${generateStars(review.stars)}
-                            </div>
-                            <div class="review-separator">|</div>
-                            <div class="review-date">${review.date}</div>
-                        </div>
-                    </div>
-                    <div class="review-divider"></div>
-                    <p class="review-text">${review.text}</p>
-                </div>
-                <div class="nickname">${review.nickname || '익명'}</div>
-            `;
-            reviewContainer.appendChild(reviewCard);
-        });
-
-        // 리뷰 개수와 평균 별점 업데이트
-        const totalReviews = reviews.length;
-        const totalStars = reviews.reduce((acc, review) => acc + review.stars, 0);
-        const averageRating = (totalStars / totalReviews).toFixed(1);
-
-        reviewCountElement.textContent = totalReviews;
-        ratingValueElement.textContent = averageRating;
-        ratingDetailsElement.textContent = `${totalReviews}개의 리뷰`;
-
-        // 별 색칠하기
-        const filledStars = Math.round(averageRating);
-        starElements.forEach((star, index) => {
-            if (index < filledStars) {
-                star.classList.add('filled');
-            } else {
-                star.classList.remove('filled');
+        $.ajax({
+            url: url,
+            method: method,
+            contentType: 'application/json',
+            data: JSON.stringify(review),
+            success: function () {
+                showEditReviewModal(); // 리뷰 수정 후 모달 표시
+                loadReviews();
+                closeModal(); // 리뷰 저장 후 모달 닫기
+                editingReviewId = null; // 수정 완료 후 초기화
+            },
+            error: function (xhr) {
+                console.error(`Error ${editingReviewId ? 'updating' : 'saving'} review:`, xhr);
+                alert(`리뷰 저장 중 오류가 발생했습니다: ${xhr.responseText}`);
             }
-        });
-
-        renderPagination(totalReviews);
-    }
-
-    function generateStars(stars) {
-        let starHTML = '';
-        for (let i = 0; i < 5; i++) {
-            if (i < stars) {
-                starHTML += '<span class="star filled">★</span>';
-            } else {
-                starHTML += '<span class="star">★</span>';
-            }
-        }
-        return starHTML;
-    }
-
-    function renderPagination(totalReviews) {
-        paginationContainer.innerHTML = '';
-        const pageCount = Math.ceil(totalReviews / reviewsPerPage);
-
-        for (let i = 1; i <= pageCount; i++) {
-            const pageButton = document.createElement('button');
-            pageButton.textContent = i;
-            pageButton.className = 'page-button';
-            if (i === currentPage) {
-                pageButton.classList.add('active');
-            }
-            pageButton.addEventListener('click', () => {
-                currentPage = i;
-                renderReviews(currentPage);
-            });
-            paginationContainer.appendChild(pageButton);
-        }
-    }
-
-    renderReviews(currentPage);
-
-    // 버튼 클릭 시 다른 페이지로 이동
-    document.querySelectorAll('.next-button').forEach(button => {
-        button.addEventListener('click', () => {
-            window.location.href = '다른페이지.html'; // 원하는 페이지 URL로 변경
         });
     });
+
+    function loadReviews(mainCategoryId = null) {
+        const url = mainCategoryId ? `/review/api/reviews/${mainCategoryId}` : '/review/api/reviews';
+        console.log(`Fetching reviews from URL: ${url}`); // 요청 URL 출력
+        $.get(url, function (reviews) {
+            if (!Array.isArray(reviews)) {
+                throw new Error('Invalid response format');
+            }
+
+            const $reviewContainer = $('#reviews');
+            $reviewContainer.empty(); // 기존 리뷰 제거
+
+            let totalRating = 0;
+
+            reviews.forEach(review => {
+                const reviewDate = new Date(review.reviewCreate).toLocaleDateString(); // 날짜 형식 변환
+                const $reviewCard = $(`
+                    <div class="review-card">
+                        <h3 class="review-title"># ${review.subcategory.bubble_slack_name}</h3>
+                        <div class="review-meta">
+                            BY ${review.member.nickname || 'Unknown'} | ${reviewDate} |
+                            <span class="review-stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</span>
+                        </div>
+                        <p class="review-text">${review.reviewText || 'No content'}</p>
+                        ${currentUserNickname && currentUserNickname === review.member.nickname ? `
+                        <button class="edit-review-btn" data-review-id="${review.reviewId}" data-nickname="${review.member.nickname}" data-bubble-slack-name="${review.subcategory.bubble_slack_name}" data-rating="${review.rating}" data-review-text="${review.reviewText}">수정</button>` : ''}
+                        <button class="go-to-tarot-btn" onclick="goToTarot(${review.subcategory.subcategoryId})">해당 타로 보러가기>></button>
+                    </div>
+                `);
+                $reviewContainer.append($reviewCard);
+
+                totalRating += review.rating;
+            });
+
+            const reviewCount = reviews.length;
+            const averageRating = reviewCount > 0 ? (totalRating / reviewCount).toFixed(1) : 0;
+
+            $('#review-count').text(reviewCount);
+            $('.review-rating-value').text(averageRating);
+            $('.review-rating-details').text(`${reviewCount}개의 리뷰`);
+
+            fillStars(averageRating);
+
+            $('.edit-review-btn').click(function () {
+                const $this = $(this);
+                const reviewId = $this.data('review-id');
+                const nickname = $this.data('nickname');
+                const bubbleSlackName = $this.data('bubble-slack-name');
+                const rating = $this.data('rating');
+                const reviewText = $this.data('review-text');
+                openEditModal(reviewId, nickname, bubbleSlackName, rating, reviewText);
+            });
+        }).fail(function (xhr) {
+            console.error('Error fetching reviews:', xhr);
+            alert('리뷰를 불러오는 중 오류가 발생했습니다. 나중에 다시 시도해 주세요.');
+        });
+    }
+
+    function fillStars(averageRating) {
+        const $reviewStars = $('#average-review-stars').children();
+        const filledStars = Math.floor(averageRating);
+        const hasHalfStar = (averageRating - filledStars) >= 0.5;
+
+        $reviewStars.removeClass('filled half-filled');
+        $reviewStars.each(function (index) {
+            if (index < filledStars) {
+                $(this).addClass('filled');
+            } else if (index === filledStars && hasHalfStar) {
+                $(this).addClass('half-filled');
+            }
+        });
+    }
+
+    function openEditModal(reviewId, nickname, bubbleSlackName, rating, reviewText) {
+        editingReviewId = reviewId; // 여기서 reviewId가 올바르게 설정되는지 확인
+        $('#custom-review-text').val(reviewText);
+        $('#ratingScore').val(rating);
+        $('.custom-modal-rating-score').text(rating + '점');
+        $('.custom-user-name').text(nickname);
+        $('.custom-user-role').text(`#${bubbleSlackName}`);
+        updateStars(rating); // 별 색상을 업데이트하는 함수 호출
+        const currentLength = reviewText.length;
+        $('#custom-character-count').text(`${currentLength}/50`); // 글자 수 업데이트
+        $('#reviewModal').show();
+        $('body').addClass('modal-open');
+    }
+
+    function updateStars(rating) {
+        // 모든 별을 기본 색상으로 초기화
+        $('#custom-modal-rating .custom-modal-star').each(function(index) {
+            if (index < rating) {
+                $(this).css('color', '#ffd700').text('★'); // 채워진 별 색상 설정
+            } else {
+                $(this).css('color', '#ddd').text('☆'); // 빈 별 색상 설정
+            }
+        });
+    }
+
+    function submitEditReview() {
+        const reviewText = $('#custom-review-text').val().trim();
+        const rating = parseInt($('#ratingScore').val());
+
+        if (!reviewText) {
+            alert('리뷰 텍스트를 입력해 주세요.');
+            return;
+        }
+        if (isNaN(rating) || rating < 1 || rating > 5) {
+            alert('유효한 평점을 입력해 주세요 (1-5).');
+            return;
+        }
+
+        if (!editingReviewId) {
+            alert('수정할 리뷰가 선택되지 않았습니다.');
+            return;
+        }
+
+        const review = {
+            rating: rating,
+            reviewText: reviewText,
+        };
+
+        const url = `/review/api/reviews/${editingReviewId}`;
+        $.ajax({
+            url: url,
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(review),
+            success: function () {
+                showEditReviewModal(); // 리뷰 수정 후 모달 표시
+                loadReviews();
+                closeModal();
+                editingReviewId = null;
+            },
+            error: function (xhr) {
+                console.error('PUT 요청 중 오류 발생:', xhr);
+                alert('서버에 PUT 요청 중 오류가 발생했습니다.');
+            }
+        });
+    }
+
+    function deleteReview() {
+        if (!editingReviewId) {
+            alert('삭제할 리뷰가 선택되지 않았습니다.');
+            return;
+        }
+
+        // 삭제 확인 모달 열기
+        $('#delete-warning-modal').show();
+        $('body').addClass('modal-open');
+    }
+
+    $('#confirm-delete-button').click(function () {
+        const url = `/review/api/reviews/${editingReviewId}`;
+        $.ajax({
+            url: url,
+            method: 'DELETE',
+            success: function () {
+                loadReviews();
+                closeWarningModal();
+                closeModal();
+                showDeletionModal(); // 리뷰 삭제 후 삭제 모달 표시
+                editingReviewId = null;
+            },
+            error: function (xhr) {
+                console.error('DELETE 요청 중 오류 발생:', xhr);
+                alert('리뷰 삭제 중 오류가 발생했습니다.');
+            }
+        });
+    });
+
+    $('#cancel-delete-button').click(function () {
+        closeWarningModal();
+    });
+
+    $('#custom-update-review').click(function () {
+        submitEditReview();
+    });
+
+    $('#custom-delete-review').click(function () {
+        deleteReview();
+    });
+
+    window.closeModal = function () {
+        $('#reviewModal').hide();
+        $('body').removeClass('modal-open');
+        editingReviewId = null;
+    };
+
+    window.closeWarningModal = function () {
+        $('#delete-warning-modal').hide();
+        $('body').removeClass('modal-open');
+    };
+
+    $('.review-filter-btn').click(function () {
+        const mainCategoryId = $(this).data('category');
+        loadReviews(mainCategoryId);
+    });
+
+    loadReviews();
 });
+
+function goToTarot(subcategoryId) {
+    window.location.href = `/tarotlist?subcategory_id=${subcategoryId}`;
+}

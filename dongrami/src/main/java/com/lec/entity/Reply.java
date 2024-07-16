@@ -1,6 +1,7 @@
 package com.lec.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -25,10 +26,10 @@ public class Reply {
     private int level;
 
     @Column(name = "reply_create", nullable = false)
-    private LocalDate replyCreate;
+    private  LocalDateTime replyCreate;
 
     @Column(name = "reply_modify")
-    private LocalDate replyModify;
+    private  LocalDateTime replyModify;
 
     @Column(name = "parent_re_id", nullable = false)
     private int parentReId;
@@ -46,7 +47,7 @@ public class Reply {
     
     
     @Builder
-	public Reply(int replyId, String content, int level, LocalDate replyCreate, LocalDate replyModify, int parentReId, Vote vote,
+	public Reply(int replyId, String content, int level,  LocalDateTime replyCreate,  LocalDateTime replyModify, int parentReId, Vote vote,
 			Member member) {
 		super();
 		this.replyId = replyId;
@@ -67,10 +68,10 @@ public class Reply {
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	public void setReplyCreate(LocalDate replyCreate) {
+	public void setReplyCreate(LocalDateTime replyCreate) {
 		this.replyCreate = replyCreate;
 	}
-	public void setReplyModify(LocalDate replyModify) {
+	public void setReplyModify(LocalDateTime replyModify) {
 		this.replyModify = replyModify;
 	}
 	public void setParentReId(int parentReId) {

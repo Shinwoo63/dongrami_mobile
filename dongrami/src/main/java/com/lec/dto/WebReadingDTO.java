@@ -24,18 +24,19 @@ public class WebReadingDTO {
     private String imageUrl1;
     private String imageUrl2;
     private String imageUrl3;
-    
+    private String bubbleSlackName;  // 추가된 필드
+
     // 생성자 -- 해석이 하나인 경우
     public WebReadingDTO(int webReadingId, String reading1, String reading1Title, Subcategory subcategory, Card card,
-			String imageUrl1) {
-		super();
-		this.webReadingId = webReadingId;
-		this.reading1 = reading1;
-		this.reading1Title = reading1Title;
-		this.subcategory = subcategory;
-		this.card = card;
-		this.imageUrl1 = imageUrl1;
-	}
+                         String imageUrl1, String bubbleSlackName) {
+        this.webReadingId = webReadingId;
+        this.reading1 = reading1;
+        this.reading1Title = reading1Title;
+        this.subcategory = subcategory;
+        this.card = card;
+        this.imageUrl1 = imageUrl1;
+        this.bubbleSlackName = bubbleSlackName;
+    }
     
     public WebReading toEntity() {
         return WebReading.builder()

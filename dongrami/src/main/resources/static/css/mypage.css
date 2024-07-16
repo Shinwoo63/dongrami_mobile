@@ -3,6 +3,10 @@
     border: none !important; /* border 속성을 none으로 설정 */
     border-radius: 0; /* border-radius 속성을 초기화 */
   }
+  
+  .logo-text {
+		margin-left : -20px;
+  }
 }
 
 .profile-box {

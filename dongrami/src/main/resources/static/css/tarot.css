@@ -147,19 +147,17 @@ main {
 }
 
 .showResult {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -170px;
-  background-color: #906DAC; /* footer의 save 버튼과 같은 색상 */
+  margin-top: 30px; /* 상하 여백 추가 및 중앙 정렬 */
+  margin-bottom: 10px;
+  margin-left: 123px;
   width: 150px;
   height: 45px;
+  background-color: #906DAC;
   border: none;
-  border-radius: 4px; /* footer 버튼과 같은 border-radius */
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
 }
 
 .showResult a {
@@ -237,11 +235,12 @@ main {
   }
 
   .service-area {
+	height: 520px;
     padding: 40px 0;
   }
 
   .service-icon img {
-    width: 180px;
+    width: 150px;
     margin-bottom: 20px;
   }
 
@@ -252,12 +251,12 @@ main {
   }
 
   .say-something-aera {
-      padding: 40px 0; /* 모바일에서 패딩 줄임 */
+      padding: 10px 0; /* 모바일에서 패딩 줄임 */
   }
   
   #card1 {
-      width: 150px;
-      height: 225px;
+      width: 100px;
+      height: 170px;
       border: 2px dotted #928f8fbd;
   }
 
@@ -355,4 +354,12 @@ main {
     .dropdown-toggle:active + .dropdown-menu {
         display: block;
     }
+    
+    .showResult {
+		bottom: -50px;
+	}
+}
+
+#tarot_info {
+	display: none;
 }

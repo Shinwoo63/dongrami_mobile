@@ -34,9 +34,9 @@ public class VoteController {
 
 	// 특정 ID의 투표 조회
 
-	  @GetMapping("/{id}") 
-	  public ResponseEntity<Vote> getVoteById(@PathVariable("id") int id) { 
-		  Optional<Vote> vote = voteService.getVoteById(id); return
+	  @GetMapping("/{voteId}") 
+	  public ResponseEntity<Vote> getVoteById(@PathVariable("voteId") int voteId) { 
+		  Optional<Vote> vote = voteService.getVoteById(voteId); return
 	  vote.map(ResponseEntity::ok).orElseGet(() ->
 	  ResponseEntity.notFound().build()); 
 	  }

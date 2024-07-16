@@ -1,6 +1,7 @@
 package com.lec.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,8 @@ public class ReplyDTO {
     private int replyId;
     private String content;
     private int level;
-    private LocalDate replyCreate;
-    private LocalDate replyModify;
+    private LocalDateTime replyCreate;
+    private  LocalDateTime replyModify;
     private Integer parentReId;
     private int voteId;
     private String userId;
@@ -59,19 +60,19 @@ public class ReplyDTO {
         this.level = level;
     }
 
-    public LocalDate getReplyCreate() {
+    public LocalDateTime getReplyCreate() {
         return replyCreate;
     }
 
-    public void setReplyCreate(LocalDate replyCreate) {
+    public void setReplyCreate(LocalDateTime replyCreate) {
         this.replyCreate = replyCreate;
     }
 
-    public LocalDate getReplyModify() {
+    public LocalDateTime getReplyModify() {
         return replyModify;
     }
 
-    public void setReplyModify(LocalDate replyModify) {
+    public void setReplyModify(LocalDateTime replyModify) {
         this.replyModify = replyModify;
     }
 

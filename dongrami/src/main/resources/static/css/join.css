@@ -194,7 +194,7 @@ input[type="text"] {
 
 #gender {
     display: flex;
-    padding: 5px;
+    padding: 1px;
     margin-left: 0px;
 }
 
@@ -245,7 +245,7 @@ input[type="text"] {
    
 }
 
-.form_item input[name="name"] {
+.form_item input[name="nickname"] {
     width: 60%;
     margin-right: 10px;
     outline: none;
@@ -263,7 +263,7 @@ input[type="text"] {
 }
 
 #phone {
-    margin-left: -65px;
+    margin-left: -67px;
     margin-top: 6px;
 }
 
@@ -286,7 +286,7 @@ input[type="text"] {
     color: white;
     font-weight: 600px;
     font-size: 14px;
-    
+    margin-top: 10px;
 }
 
 .submit_button:hover {
@@ -311,7 +311,7 @@ select option[value=""][disabled] {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 5px;
-    margin-left: 5px;
+    margin-left: 1px;
     
     
 }
@@ -319,7 +319,7 @@ select option[value=""][disabled] {
 #info_birth select {
     width: 100px;
     margin-right: 0;
-    height:30px;
+    height:10px;
 }
 
 #info_birth select:last-of-type {
@@ -355,13 +355,19 @@ select {
     font-size: 10px;
 }
 
+#valid_password2 {
+    margin-top: 10px;
+    margin-right: 179px;
+}
+
 #valid_email{
     margin-left: -70px;
     margin-top: 10px;
 }
 
 #valid_nickname{ 
-    margin-left: -120px;
+    margin-left: -124px;
+    margin-top:5px;
     font-size: 10px;
 }
 
@@ -398,9 +404,9 @@ select {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.close-btn {
+span.close-button {
     position: absolute;
-    top: 10px;
+    top: -7px;
     right: 10px;
     color: #aaa;
     font-size: 28px;
@@ -416,8 +422,10 @@ select {
 }
 
 .modal-content p {
+	white-space: nowrap;
+	margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 #modalLoginButton {
@@ -469,7 +477,7 @@ select {
         box-shadow: none;
     }
 
-   }
+ }
 
 
 /* 로그인 후 네비바 */

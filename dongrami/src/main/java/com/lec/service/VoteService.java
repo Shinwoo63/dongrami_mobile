@@ -24,8 +24,8 @@ public class VoteService {
     }
 
     // 특정 ID의 투표 조회
-    public Optional<Vote> getVoteById(int id) {
-        return voteRepository.findById(id);
+    public Optional<Vote> getVoteById(int voteId) {
+        return voteRepository.findById(voteId);
     }
 
     // 투표 생성

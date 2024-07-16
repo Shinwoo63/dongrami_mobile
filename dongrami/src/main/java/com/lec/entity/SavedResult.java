@@ -25,10 +25,10 @@ public class SavedResult {
     @Column(name = "position_1", length = 20, nullable = false)
     private String position1;
 
-    @Column(name = "position_2", length = 20, nullable = false)
+    @Column(name = "position_2", length = 20, nullable = true)
     private String position2;
 
-    @Column(name = "position_3", length = 20, nullable = false)
+    @Column(name = "position_3", length = 20, nullable = true)
     private String position3;
 
     @ManyToOne
@@ -40,11 +40,11 @@ public class SavedResult {
     private Card card1;
 
     @ManyToOne
-    @JoinColumn(name = "card_id2", referencedColumnName = "card_id", nullable = false)
+    @JoinColumn(name = "card_id2", referencedColumnName = "card_id", nullable = true)
     private Card card2;
 
     @ManyToOne
-    @JoinColumn(name = "card_id3", referencedColumnName = "card_id", nullable = false)
+    @JoinColumn(name = "card_id3", referencedColumnName = "card_id", nullable = true)
     private Card card3;
 
     @ManyToOne

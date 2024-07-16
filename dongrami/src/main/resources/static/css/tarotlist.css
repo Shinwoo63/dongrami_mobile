@@ -186,7 +186,7 @@ body {
     }
 
     .custom-integration-card-content {
-        height: auto; /* 컨텐츠 높이를 자동으로 조정 */
+        /* height: auto; 컨텐츠 높이를 자동으로 조정 */
     }
 }
 
@@ -298,79 +298,5 @@ body {
     align-items: center;
     margin-top:100px;
 }
-}
 
-/* 로그인 후 네비바 */
-
-.dropdown {
-    position: relative;
-    margin-right: -100px;
-}
-
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-}
-
-.profile-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-    margin-left: -10px;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 200px; /* 메뉴 너비 조정 */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    z-index: 1000;
-    border: none;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li {
-    padding: 0;
-}
-
-.dropdown-menu li a {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: inherit;
-   
-}
-
-.dropdown-menu li:last-child a {
-    border-bottom: none;
-}
-
-@media (max-width: 991px) {
-    .dropdown-menu {
-        position: static;
-        width: 100%;
-    }
-
-    .dropdown:hover .dropdown-menu {
-        display: none;
-    }
-
-    .dropdown-toggle:focus + .dropdown-menu,
-    .dropdown-toggle:active + .dropdown-menu {
-        display: block;
-    }
 }

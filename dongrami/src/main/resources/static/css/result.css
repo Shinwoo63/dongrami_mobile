@@ -103,116 +103,6 @@
     width: 300px;
   }
 
-  /* 기본 스타일 (데스크톱) */
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.service-area {
-  background-color: #F4FEFF;
-  width: 100%;
-  padding: 40px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.service-icon img {
-  width: 300px;
-  height: auto;
-  margin-bottom: 40px;
-}
-
-.say-something-aera {
-  background-color: white;
-  padding: 90px 0; /* pt-90 pb-90 대체 */
-  width: 100%;
-}
-
-.card-select {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-#card1 {
-  width: 150px;
-  height: 250px;
-  border: 3px dotted #928f8fbd;
-  border-radius: 20px;
-}
-
-.buttons {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.buttons a {
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: 1px solid #ddd;
-    background-color: #906DAC;
-    cursor: pointer;
-    border-radius: 4px;
-    color: white;
-    text-decoration-line: none;
-}
-
-.buttons a:hover {
-    color: white;
-    text-decoration-line: none;
-}
-
-/* 모바일 스타일 (iPhone 12 Pro) */
-@media screen and (max-width: 390px) {
-  body, html {
-    width: 390px;
-    height: 844px;
-  }
-
-  .container {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1;
-    justify-content: space-between;
-  }
-
-  .service-area {
-    padding: 20px 0;
-  }
-
-  .service-icon img {
-    width: 180px;
-    margin-bottom: 20px;
-  }
-
-  .center-card {
-    width: 80px;
-    height: 130px;
-    margin: 20px auto;
-  }
-
-  .say-something-aera {
-      padding: 40px 0; /* 모바일에서 패딩 줄임 */
-  }
-  
-  #card1 {
-      width: 100px;
-      height: 170px;
-      border: 2px dotted #928f8fbd;
-  }
-}
-
 /* 로그인 후 네비바 */
 
 .dropdown {
@@ -286,4 +176,451 @@ main {
     .dropdown-toggle:active + .dropdown-menu {
         display: block;
     }
+  }
+  
+/* 기본 스타일 (데스크톱) */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.service-area {
+  background-color: #F4FEFF;
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-icon img {
+  width: 300px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.say-something-aera {
+  background-color: white;
+  padding: 90px 0; /* pt-90 pb-90 대체 */
+  width: 100%;
+}
+
+.card-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#card1 {
+  width: 150px;
+  height: 250px;
+ /* border: 3px dotted #928f8fbd;*/
+  border-radius: 20px;
+}
+
+.buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.buttons a {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #906DAC;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    text-decoration-line: none;
+}
+
+.buttons a:hover {
+    color: white;
+    text-decoration-line: none;
+}
+
+#card1 img{
+	width: 150px;
+	height: 230px;
+}
+
+/* 모바일 스타일 (iPhone 12 Pro) */
+@media screen and (max-width: 390px) {
+  body, html {
+    width: 390px;
+    height: 844px;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .service-area {
+    padding: 20px 0;
+    height: 550px;
+  }
+
+  .service-icon img {
+    width: 150px;
+    margin-bottom: 10px;
+    margin-top: -60px;
+  }
+
+  .center-card {
+    width: 80px;
+    height: 130px;
+    margin: 20px auto;
+  }
+
+  .say-something-aera {
+      padding: 40px 0; /* 모바일에서 패딩 줄임 */
+  }
+  
+  #card1 {
+      width: 100px;
+      height: 170px;
+      /*border: 2px dotted #928f8fbd;*/
+  }
+  
+  #card1 img{
+	width: 150px;
+	height: 230px;
+	margin-left: -25px;
+}
+
+.contentDiv{
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+#readingContent {
+    line-height: 2px;  /* 줄 간격을 줄임 */
+    word-break: keep-all;
+    word-wrap: break-word;
+    text-align: justify;
+    padding: 12px;
+}
+
+#readingContent p {
+    margin-bottom: 15px;  /* 문단 간 간격 유지 */
+    color:black;
+}
+
+#subcategory_name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: -20px;
+	margin-bottom: -10px;
+	font-size: 20px;
+	color:#450b78;
+}
+
+}
+  
+ /* 결과 저장 성공 모달 */
+.modal-content {
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,.5);
+            }
+            .modal-header {
+                border-bottom: none;
+                padding: 20px 20px 0;
+            }
+            .modal-body {
+                padding: 20px;
+                text-align: center;
+                font-size: 16px;
+            }
+            .modal-footer {
+                border-top: none;
+                padding: 0 20px 20px;
+            }
+            .modal-title {
+                width: 100%;
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .close {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                font-size: 28px;
+            }
+            .modal-dialog {
+   		max-width: 300px;
+    		margin: 0 auto;
+    		position: absolute;
+    		top: 35%;
+    		left: 26%;
+   		transform: translate(-50%, -50%);
+   			}
+            .btn-secondary {
+                background-color: #6c5ce7;
+                border-color: #6c5ce7;
+                color: white;
+                width: 100%;
+                padding: 10px 0;
+                font-size: 14px;
+                border-radius: 5px;
+                height:50px;
+            }
+            .btn-secondary:hover {
+                background-color: #5f50e1;
+                border-color: #5f50e1;
+            }
+
+	/* 모달 스타일 */
+	.custom-modal {
+	    display: none;
+	    position: fixed;
+	    z-index: 1000;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    overflow: auto;
+	    background-color: rgba(0, 0, 0, 0.4);
+	}
+	
+	.custom-modal-content {
+	    background-color: #fff;
+	    margin: 10% auto;
+	    padding: 20px;
+	    border: 1px solid #888;
+	    width: 35%;
+	    max-width: 550px;
+	    z-index: 1001;
+	    border-radius: 10px;
+	    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+	}
+	
+	.custom-close {
+	    color: #aaa;
+	    float: right;
+	    font-size: 28px;
+	    font-weight: bold;
+	}
+	
+	.custom-close:hover,
+	.custom-close:focus {
+	    color: black;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+	
+	.custom-modal-title {
+	    text-align: center;
+	}
+	
+	.custom-review-details {
+	    display: flex;
+	    justify-content: space-evenly;
+	    align-items: center;
+	    margin-bottom: 20px;
+	}
+	
+	.custom-review-user {
+	    display: flex;
+	    align-items: center;
+	}
+	
+	.custom-modal-image {
+	    width: 50px;
+	    height: 50px;
+	    margin-right: 10px;
+	}
+	
+	.custom-user-info {
+	    display: flex;
+	    flex-direction: column;
+	}
+	
+	.custom-user-name {
+	    font-weight: bold;
+	    font-size: 18px;
+	}
+	
+	.custom-user-role {
+	    font-size: 14px;
+	    color: #888;
+	}
+	
+	.custom-review-rating {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	}
+	
+	.custom-modal-rating-score {
+	    font-weight: bold;
+	    font-size: 16px;
+	    margin-left: 5px;
+	}
+	
+	#custom-modal-rating .custom-modal-star {
+	    font-size: 24px;
+	    color: #ffd700; /* 기본 색상 */
+	}
+	
+	#custom-modal-rating .custom-modal-star.filled {
+	    color: #ffd700; /* 채워진 별 색상 */
+	}
+	
+	#custom-modal-rating .custom-modal-star.half-filled {
+	    position: relative;
+	}
+	
+	#custom-modal-rating .custom-modal-star.half-filled::after {
+	    content: '★';
+	    color: #ffd700;
+	    position: absolute;
+	    left: 0;
+	    width: 50%;
+	    overflow: hidden;
+	}
+	
+	#custom-review-text {
+	    width: 100%;
+	    height: 100px;
+	    margin-bottom: 10px;
+	    border: 1px solid #ddd;
+	    border-radius: 5px;
+	    padding: 10px;
+	    box-sizing: border-box;
+	}
+	
+	#custom-character-count {
+	    text-align: right;
+	    font-size: 12px;
+	    color: #888;
+	}
+	
+	.custom-modal-buttons {
+	    display: flex;
+	    justify-content: space-around;
+	}
+	
+	.custom-modal-buttons {
+	    display: flex;
+	    justify-content: center;
+	    gap: 10px; /* 버튼 간격 조정 */
+	}
+	
+	.custom-modal-buttons button {
+	    padding: 10px 20px;
+	    border: none;
+	    border-radius: 5px;
+	    cursor: pointer;
+	    background-color: #f7a728;
+	    color: white;
+	    font-size: 14px;
+	    transition: background-color 0.3s ease;
+	}
+	
+	.custom-modal-buttons button:hover {
+	    background-color: #138496;
+	}
+	
+	/* 모바일 스타일 */
+	@media screen and (max-width: 768px) {
+	    .custom-modal-content {
+	        width: 80%;
+	        padding: 10px;
+	        margin-top: 40%; /* 상단 여백 추가 */
+	    }
+	
+	    .custom-modal-title {
+	        font-size: 24px;
+	        margin-top: 15px;
+	    }
+	
+	    .custom-modal-image {
+	        width: 40px;
+	        height: 40px;
+	        margin-right: 5px;
+	    }
+	
+	    .custom-user-name {
+	        font-size: 16px;
+	    }
+	
+	    .custom-user-role {
+	        font-size: 12px;
+	    }
+	
+	    .custom-review-rating .custom-modal-rating-score {
+	        font-size: 14px;
+	    }
+	
+	    #custom-modal-rating .custom-modal-star {
+	        font-size: 20px;
+	    }
+	
+	    #custom-review-text {
+	        height: 80px;
+	    }
+	
+	    .custom-modal-buttons button {
+	        font-size: 12px;
+	        padding: 8px 16px;
+	    }
+	}
+	
+	/* 리뷰 등록 완료 모달 스타일 */
+	.review-registration-modal {
+	    display: none;
+	    position: fixed;
+	    z-index: 1000;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    overflow: auto;
+	    background-color: rgba(0, 0, 0, 0.4);
+	}
+	
+	.review-registration-modal-content {
+	    background-color: #fefefe;
+	    margin: 15% auto;
+	    padding: 20px;
+	    border: 1px solid #888;
+	    width: 300px; /* 모달의 너비를 고정합니다 */
+	    text-align: center;
+	    border-radius: 10px; /* 모서리를 둥글게 만듭니다 */
+	    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* 약간의 그림자를 추가합니다 */
+	    margin-top: 250px;
+	}
+	
+	/* OK 버튼 스타일 */
+	.review-registration-ok-button {
+	    background-color: #4CAF50; /* 초록색 */
+	    border: none;
+	    color: white;
+	    padding: 10px 20px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+	    margin-top: 20px; /* 버튼과 텍스트 사이에 간격을 추가합니다 */
+	    cursor: pointer;
+	    border-radius: 10px; /* 버튼 모서리를 둥글게 만듭니다 */
+	    transition: background-color 0.3s ease; /* 호버 시 배경색 전환을 부드럽게 만듭니다 */
+	}
+	
+	.review-registration-ok-button:hover {
+	    background-color: #45a049; /* 호버 시 약간 더 어두운 초록색으로 변경합니다 */
+	}

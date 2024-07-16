@@ -5,7 +5,7 @@
         <title>Dongrami Tarot</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
 		<!-- CSS here -->
             <link rel="stylesheet" href="/css/bootstrap.min2.css">
@@ -25,31 +25,31 @@
    <body>
 
 	<header>
-		       <!-- Header Start -->
-		      <div class="header-area header-transparrent ">
-		           <div class="main-header header-sticky">
-		               <div class="container">
-		                   <div class="row align-items-center">
-		                       <!-- Logo -->
-		                       <div class="col-xl-2 col-lg-2 col-md-2">
-		                           <div class="logo">
-		                               <a href="/" class="logo-text">CIRCLE TAROT</a>
-		                               <div class="hover-content">
-		                                   <span class="hover-text left-text">동그</span>
-		                                   <div class="logo-image"></div>
-		                                   <span class="hover-text right-text">라미</span>
-		                               </div>
-		                           </div>
-		                       </div>
-		                       <div class="col-xl-10 col-lg-10 col-md-10">
-		                           <!-- Main-menu -->
-		                           <div class="main-menu f-right d-none d-lg-block">
-		                               <nav>
-		                                   <ul id="navigation">    
-		                                       <li class="active"><a th:href="@{/index}"> Home</a></li>
-		                                       <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
-		                                       <li><a th:href="@{/vote}">논쟁 투표</a></li>
-		                                       <li><a th:href="@{/review}">리뷰</a></li>
+	        <!-- Header Start -->
+	       <div class="header-area header-transparrent ">
+	            <div class="main-header header-sticky">
+	                <div class="container">
+	                    <div class="row align-items-center">
+	                        <!-- Logo -->
+	                        <div class="col-xl-2 col-lg-2 col-md-2">
+	                            <div class="logo">
+	                                <a th:href="@{/}" class="logo-text">CIRCLE TAROT</a>
+	                                <div class="hover-content">
+	                                    <span class="hover-text left-text">동그</span>
+	                                    <div class="logo-image"></div>
+	                                    <span class="hover-text right-text">라미</span>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="col-xl-10 col-lg-10 col-md-10">
+	                            <!-- Main-menu -->
+	                            <div class="main-menu f-right d-none d-lg-block">
+	                                <nav>
+	                                    <ul id="navigation">    
+	                                        <li class="active"><a th:href="@{/}"> Home</a></li>
+	                                        <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+	                                        <li><a th:href="@{/vote}">논쟁 투표</a></li>
+	                                        <li><a th:href="@{/review}">후기</a></li>
 											<li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
 											     <a th:href="@{/login}">로그인 / 회원가입</a>
 											</li>
@@ -62,70 +62,80 @@
 											     	<li><a th:href="@{/mypage}">마이페이지</a></li>
 											     	<li><a th:href="@{/logout}">로그아웃</a></li>
 											   </ul>
-										  </li>
-		                               </nav>
+										  </li>                  
+	                                </nav>
+	                            </div>
+	                        </div>
+	                        <!-- Mobile Menu -->
+	                        <div class="col-12">
+	                            <div class="mobile_menu d-block d-lg-none"></div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	       </div>
+	        <!-- Header End -->
+	    </header>
+
+
+		   <main>
+		       <!-- Services Area Start -->
+		       <section class="service-area sky-blue section-padding2">
+		           <div class="container1">
+		               <div class="row justify-content-center">
+		                   <div class="col-xl-4 col-lg-4 col-md-6">
+		                       <div class="services-caption active text-center mb-30">
+		                           <div class="service-icon">
+		                               <img src="/images/basic_tarot.png" alt="" id="basic-tarot-image">
 		                           </div>
-		                       </div>
-		                       <!-- Mobile Menu -->
-		                       <div class="col-12">
-		                           <div class="mobile_menu d-block d-lg-none"></div>
+		                           <div class="card-select">
+		                               <div id="card1">
+		                                   <img th:src="${webReading.imageUrl1}" id="tarotImg">
+		                               </div>
+		                           </div>
+								  
 		                       </div>
 		                   </div>
 		               </div>
 		           </div>
-		      </div>
-		       <!-- Header End -->
-		   </header>
+		       </section>
 
-    <main>
+		       <!-- Say Something Start -->
+		       <div class="say-something-aera pt-90 pb-90 fix">
+				   <span><p id="subcategory_name" th:text="${webReading.bubbleSlackName}"></p></span>
+		           <div class="container">
+		               <div class="row justify-content-between align-items-center">
+		                   <div class="contentDiv">
+							<span class="content" id="readingContent" th:text="${webReading.reading1}"></span>
+							<div id="displayContent"></div>
+		                   </div>
+		               </div>
+		           </div>
+		       </div>
+		       <!-- Say Something End -->
 
-        <!-- Best Features End -->
-        <!-- Services Area Start -->
-        <section class="service-area sky-blue section-padding2">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <span><p id="subcategory_name" th:text="${subcategoryName}">짝사랑</p></span>
-                        <div class="services-caption active text-center mb-30">
-                            <div class="service-icon">
-                                <img src="/images/basic_tarot.png" alt="" id="basic-tarot-image">
-                            </div>
-                            <div class="card-select">
-                                <div id="card1" th:attr="data-card-id=${selectedCardId}"></div>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Our Customer End -->
-       
-        <!-- Say Something Start -->
-        <div class="say-something-aera pt-90 pb-90 fix">
-            <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="contentDiv">
-                        <span class="content">
-                            <p th:text="${content}">과거에 넌 그 사람을 처음 봤을 때부터 마음을 빼앗겼어. ''바보'' 카드는 새로운 시작과 모험을 상징하는데, 너의 짝사랑도 그랬을 거야.</p>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Say Something End -->
-		
-		<div class="buttons">
-				    <a th:if="${session.loggedInUser == null}" th:href="@{/topic}" id="more-tarot">타로 더보기</a>
-				</div>
-						
-				<div class="buttons" th:if="${session.loggedInUser != null}">
-				    <a th:href="@{/tarotlist}" id="more-tarot">타로 더보기</a>
-				    <a href="javascript:void(0);" id="save-result">저장</a>
-				    <a href="javascript:void(0);" id="write-review">리뷰 쓰기</a>
-				</div>
-     
-    </main>
+		       <div class="buttons">
+		           <a th:if="${session.loggedInUser == null}" th:href="@{/topic}" id="more-tarot">타로 더보기</a>
+		       </div>
+
+		       <div class="buttons" th:if="${session.loggedInUser != null}">
+		           <a th:href="@{/tarotlist}" id="more-tarot">타로 더보기</a>
+		           <a href="javascript:void(0);" id="save-result">저장</a>
+		           <a href="javascript:void(0);" id="write-review">리뷰 쓰기</a>
+		       </div>
+
+		       <!-- Hidden fields -->
+			   <input type="hidden" id="currentUserNickname" th:value="${session.loggedInUser.nickname}">
+			   <input type="hidden" id="currentUserId" th:value="${session.loggedInUser.userId}"> <!-- userId 값 추가 -->
+		       <input type="hidden" id="webReadingId" th:value="${webReading.webReadingId}">
+		       <input type="hidden" id="reading1Title" th:value="${webReading.reading1Title}">
+		       <input type="hidden" id="subcategoryId" th:value="${webReading != null and webReading.subcategory != null ? webReading.subcategory.subcategory_id : ''}">
+		       <input type="hidden" id="cardId" th:value="${webReading != null and webReading.card != null ? webReading.card.cardId : ''}">
+		   </main>
+
+	   
+	
+	   
     <footer>
         <!-- Footer Start-->
         <div class="footer-main">
@@ -161,6 +171,90 @@
             <!-- Footer End-->
         </div>
     </footer>
+	
+	<!-- 리뷰 모달 HTML 추가 -->
+	<div id="reviewModal" class="custom-modal" style="display:none;">
+	    <div class="custom-modal-content">
+	        <span class="custom-close" onclick="closeModal()">&times;</span>
+	        <h2 class="custom-modal-title">리뷰 작성하기</h2>
+	        <p>동그라미가 들려준 이야기를 수정하여 더 나은 경험을 공유하세요!</p>
+	        <div class="custom-review-details">
+	            <div class="custom-review-user">
+	                <img src="images/basic.png" alt="Default Image" class="custom-modal-image">
+	                <div class="custom-user-info">
+	                    <span class="custom-user-name">닉네임</span>
+	                    <span class="custom-user-role">#소주제</span>
+	                </div>
+	            </div>
+	            <div class="custom-review-rating">
+	                <label for="custom-modal-rating">평점 <span class="custom-modal-rating-score">3점</span></label>
+	                <div id="custom-modal-rating">
+	                    <span class="custom-modal-star">★</span>
+	                    <span class="custom-modal-star">★</span>
+	                    <span class="custom-modal-star">★</span>
+	                    <span class="custom-modal-star">☆</span>
+	                    <span class="custom-modal-star">☆</span>
+	                </div>
+	            </div>
+	        </div>
+	        <form id="reviewForm" method="post">
+	            <textarea id="custom-review-text" name="reviewText" placeholder="50자 미만 작성해주세요"></textarea>
+	            <div id="custom-character-count">0/50</div>
+	            <input type="hidden" id="ratingScore" name="ratingScore" value="3">
+	            <div class="custom-modal-buttons">
+	                <button type="button" id="custom-submit-review">리뷰 등록</button>
+	            </div>
+	        </form>
+	    </div>
+	</div>
+
+			<!-- 리뷰 등록 완료 모달 -->
+		<div id="review-registration-modal" class="review-registration-modal">
+		    <div class="review-registration-modal-content">
+		        <p>리뷰가 등록되었습니다.</p>
+		        <button class="review-registration-ok-button">OK</button>
+		    </div>
+		</div>
+		
+		<!-- 성공 모달 -->
+			    <div class="modal fade" id="saveSuccessModal" tabindex="-1" role="dialog" aria-labelledby="saveSuccessModalLabel" aria-hidden="true">
+			      <div class="modal-dialog" role="document">
+			        <div class="modal-content">
+			          <div class="modal-header">
+			            <h5 class="modal-title" id="saveSuccessModalLabel">저장 성공</h5>
+			            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			              <span aria-hidden="true">&times;</span>
+			            </button>
+			          </div>
+			          <div class="modal-body">
+			            저장에 성공했습니다.
+			          </div>
+			          <div class="modal-footer">
+			            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+
+			    <!-- 실패 모달 -->
+			    <div class="modal fade" id="saveErrorModal" tabindex="-1" role="dialog" aria-labelledby="saveErrorModalLabel" aria-hidden="true">
+			      <div class="modal-dialog" role="document">
+			        <div class="modal-content">
+			          <div class="modal-header">
+			            <h5 class="modal-title" id="saveErrorModalLabel">저장 실패</h5>
+			            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			              <span aria-hidden="true">&times;</span>
+			            </button>
+			          </div>
+			          <div class="modal-body">
+			            <!-- 에러 메시지가 여기에 동적으로 삽입됩니다 -->
+			          </div>
+			          <div class="modal-footer">
+			            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
    
 	<!-- JS here -->
 	<!-- All JS Custom Plugins Link Here here -->
@@ -198,7 +292,9 @@
 			<!-- Jquery Plugins, main Jquery -->	
 	        <script th:src="@{/js/plugins.js}"></script>
 	        <script th:src="@{/js/main.js}"></script>
-
+			<script th:src="@{/js/readingSplit.js}"></script>
+			<script th:src="@{/js/saved.js}"></script>
+			<script th:src="@{/js/result.js}"></script>
     <!-- result js-->
     
     </body>

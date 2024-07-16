@@ -35,9 +35,9 @@
   }
   
   @media (max-width: 900px) {
-	.hover-content {
-		margin-left: 200px;
-	}
+   .hover-content {
+      margin-left: 200px;
+   }
   }
   
   .logo-text:hover {
@@ -95,10 +95,16 @@
     
   
   .footer-text {
-	color: #450b78;
+   color: #450b78;
     font-weight: 700;
     text-decoration: none;
     font-size: 40px; /* 고정된 텍스트 크기 */
     display: inline-block;
     width: 300px;
   }
+.footer-padding {
+	position:relative;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    z-index:1000;
+}
